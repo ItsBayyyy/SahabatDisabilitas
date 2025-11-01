@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SahabatDisabilitas - Platform edukasi interaktif tentang pentingnya aksesibilitas web untuk semua pengguna">
+    <title>SahabatDisabilitas - Edukasi Aksesibilitas Web</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body.high-contrast {
+            background-color: #000000 !important;
+            color: #fbbf24 !important;
+        }
+
+        body.high-contrast * {
+            border-color: #fbbf24 !important;
+        }
+
+        body.high-contrast .bg-white {
+            background-color: #000000 !important;
+        }
+
+        body.high-contrast .bg-blue-600,
+        body.high-contrast .bg-blue-500,
+        body.high-contrast .bg-orange-500,
+        body.high-contrast .bg-gray-50,
+        body.high-contrast .bg-gray-100,
+        body.high-contrast .bg-gray-800,
+        body.high-contrast .bg-gray-900 {
+            background-color: #000000 !important;
+        }
+
+        body.high-contrast .text-gray-600,
+        body.high-contrast .text-gray-700,
+        body.high-contrast .text-gray-800,
+        body.high-contrast .text-gray-900,
+        body.high-contrast .text-white,
+        body.high-contrast .text-blue-600,
+        body.high-contrast .text-orange-500 {
+            color: #fbbf24 !important;
+        }
+
+        body.high-contrast button,
+        body.high-contrast a {
+            border: 2px solid #fbbf24 !important;
+            color: #fbbf24 !important;
+        }
+
+        body.high-contrast .card-hover {
+            background-color: #1a1a1a !important;
+        }
+
+        .focus-visible:focus {
+            outline: 4px solid #2563eb;
+            outline-offset: 4px;
+        }
+
+        .keyboard-challenge-area *:focus {
+            outline: 4px solid #f97316;
+            outline-offset: 2px;
+            background-color: #fef3c7;
+        }
+
+        body.no-mouse {
+            cursor: none !important;
+        }
+
+        body.no-mouse * {
+            cursor: none !important;
+        }
+
+        .audio-progress {
+            transition: width 0.1s linear;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        #mobileMenu {
+            transition: max-height 0.3s ease-in-out;
+            overflow: hidden;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .transcript-text {
+            line-height: 1.8;
+        }
+
+        .transcript-highlight {
+            background-color: #fef3c7;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded">
+        Skip to main content
+    </a>
+
+    <nav class="bg-white shadow-md sticky top-0 z-40" role="navigation" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center space-x-2 focus-visible" aria-label="SahabatDisabilitas Home">
+                        <i class="fas fa-universal-access text-2xl text-blue-600" aria-hidden="true"></i>
+                        <span class="text-xl font-bold text-gray-900">SahabatDisabilitas</span>
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#beranda" class="text-gray-700 hover:text-blue-600 focus-visible transition">Beranda</a>
+                    <a href="#fitur" class="text-gray-700 hover:text-blue-600 focus-visible transition">Fitur</a>
+                    <a href="#simulasi" class="text-gray-700 hover:text-blue-600 focus-visible transition">Simulasi</a>
+                    <a href="#tentang" class="text-gray-700 hover:text-blue-600 focus-visible transition">Tentang</a>
+
+                    <div class="flex items-center space-x-2 border-l border-gray-300 pl-8">
+                        <button
+                            id="langBtn-id"
+                            class="px-3 py-2 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 focus-visible transition"
+                            aria-label="Switch to Indonesian"
+                            data-lang="id">
+                            ID
+                        </button>
+                        <button
+                            id="langBtn-en"
+                            class="px-3 py-2 rounded-lg font-semibold text-gray-700 hover:bg-gray-100 focus-visible transition"
+                            aria-label="Switch to English"
+                            data-lang="en">
+                            EN
+                        </button>
+                    </div>
+
+                    <button
+                        id="contrastToggle"
+                        class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 focus-visible transition flex items-center space-x-2"
+                        aria-label="Toggle high contrast mode"
+                        aria-pressed="false">
+                        <i class="fas fa-adjust" aria-hidden="true"></i>
+                        <span>Kontras Tinggi</span>
+                    </button>
+                </div>
+
+                <button
+                    id="mobileMenuToggle"
+                    class="md:hidden text-gray-700 focus-visible p-2"
+                    aria-label="Toggle mobile menu"
+                    aria-expanded="false"
+                    aria-controls="mobileMenu">
+                    <i class="fas fa-bars text-2xl" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <div id="mobileMenu" class="md:hidden max-h-0" style="max-height: 0;">
+                <div class="px-2 pt-2 pb-4 space-y-3">
+                    <a href="#beranda" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded focus-visible">Beranda</a>
+                    <a href="#fitur" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded focus-visible">Fitur</a>
+                    <a href="#simulasi" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded focus-visible">Simulasi</a>
+                    <a href="#tentang" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded focus-visible">Tentang</a>
+                    <div class="px-3 py-2 flex space-x-2">
+                        <button
+                            id="langBtnMobile-id"
+                            class="flex-1 px-3 py-2 rounded font-semibold text-white bg-blue-600 hover:bg-blue-700 focus-visible transition"
+                            aria-label="Switch to Indonesian"
+                            data-lang="id">
+                            ID
+                        </button>
+                        <button
+                            id="langBtnMobile-en"
+                            class="flex-1 px-3 py-2 rounded font-semibold text-gray-700 hover:bg-gray-100 focus-visible transition"
+                            aria-label="Switch to English"
+                            data-lang="en">
+                            EN
+                        </button>
+                    </div>
+                    <button
+                        id="contrastToggleMobile"
+                        class="w-full text-left px-3 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 focus-visible flex items-center space-x-2"
+                        aria-label="Toggle high contrast mode">
+                        <i class="fas fa-adjust" aria-hidden="true"></i>
+                        <span>Kontras Tinggi</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <section id="beranda" class="relative bg-gradient-to-br from-blue-50 to-orange-50 py-20 md:py-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center fade-in">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                        Web untuk <span class="text-blue-600">Semua Orang</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
+                        Rasakan langsung tantangan yang dihadapi penyandang disabilitas dalam mengakses web.
+                        Belajar, berempati, dan ciptakan website yang inklusif untuk semua.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                        <a href="#tentang"
+                           class="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 focus-visible transition shadow-lg">
+                            <i class="fas fa-graduation-cap mr-2" aria-hidden="true"></i>
+                            Mulai Belajar
+                        </a>
+                        <a href="#simulasi"
+                           class="px-8 py-4 bg-white text-blue-600 border-2 border-blue-600 rounded-lg font-semibold hover:bg-blue-50 focus-visible transition">
+                            <i class="fas fa-play-circle mr-2" aria-hidden="true"></i>
+                            Coba Simulasi
+                        </a>
+                    </div>
+
+                    <button
+                        id="heroScreenReaderBtn"
+                        class="inline-flex items-center space-x-2 text-gray-700 hover:text-blue-600 focus-visible transition"
+                        aria-label="Play screen reader simulation">
+                        <i class="fas fa-volume-up text-2xl" aria-hidden="true"></i>
+                        <span class="font-medium">Dengarkan Simulasi Screen Reader</span>
+                    </button>
+                </div>
+
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <div class="text-center p-6 bg-white rounded-lg shadow-md">
+                        <i class="fas fa-users text-4xl text-blue-600 mb-4" aria-hidden="true"></i>
+                        <h3 class="text-xl font-semibold mb-2">15% Populasi</h3>
+                        <p class="text-gray-600">Memiliki berbagai bentuk disabilitas</p>
+                    </div>
+                    <div class="text-center p-6 bg-white rounded-lg shadow-md">
+                        <i class="fas fa-globe text-4xl text-orange-500 mb-4" aria-hidden="true"></i>
+                        <h3 class="text-xl font-semibold mb-2">1 Miliar+</h3>
+                        <p class="text-gray-600">Orang membutuhkan aksesibilitas web</p>
+                    </div>
+                    <div class="text-center p-6 bg-white rounded-lg shadow-md">
+                        <i class="fas fa-chart-line text-4xl text-blue-600 mb-4" aria-hidden="true"></i>
+                        <h3 class="text-xl font-semibold mb-2">2.3x Lebih Baik</h3>
+                        <p class="text-gray-600">UX untuk semua pengguna dengan aksesibilitas</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="simulasi" class="py-20 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        <i class="fas fa-headphones text-blue-600 mr-2" aria-hidden="true"></i>
+                        Simulasi Screen Reader
+                    </h2>
+                    <p class="text-lg text-gray-600">
+                        Dengarkan bagaimana screen reader membaca website untuk pengguna tunanetra
+                    </p>
+                </div>
+
+                <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl shadow-xl p-8 md:p-12">
+                    <div class="bg-white rounded-xl p-6 shadow-md mb-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <button
+                                    id="playPauseBtn"
+                                    class="w-14 h-14 bg-blue-600 text-white rounded-full hover:bg-blue-700 focus-visible transition flex items-center justify-center shadow-lg"
+                                    aria-label="Play screen reader audio">
+                                    <i class="fas fa-play text-xl" aria-hidden="true"></i>
+                                </button>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Screen Reader Audio</p>
+                                    <p class="text-sm text-gray-600" id="audioStatus">Siap diputar</p>
+                                </div>
+                            </div>
+                            <button
+                                id="stopBtn"
+                                class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 focus-visible transition"
+                                aria-label="Stop audio">
+                                <i class="fas fa-stop mr-2" aria-hidden="true"></i>
+                                Stop
+                            </button>
+                        </div>
+
+                        <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
+                            <div id="audioProgress" class="audio-progress bg-blue-600 h-2 rounded-full" style="width: 0%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 text-right">
+                            <span id="currentTime">0:00</span> / <span id="totalTime">0:00</span>
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 shadow-md">
+                        <h3 class="font-semibold text-gray-900 mb-3 flex items-center">
+                            <i class="fas fa-file-alt text-orange-500 mr-2" aria-hidden="true"></i>
+                            Transkrip Audio
+                        </h3>
+                        <div id="transcript" class="transcript-text text-gray-700 space-y-3">
+                            <p>Selamat datang di SahabatDisabilitas. Navigasi utama. Link, Beranda. Link, Fitur. Link, Simulasi. Link, Tentang. Tombol, Kontras Tinggi.</p>
+                            <p>Heading level 1: Web untuk Semua Orang. Paragraf: Rasakan langsung tantangan yang dihadapi penyandang disabilitas dalam mengakses web.</p>
+                            <p>Link, Mulai Belajar. Link, Coba Simulasi. Tombol, Dengarkan Simulasi Screen Reader.</p>
+                            <p>Region: Statistik. Heading level 3: 15 persen Populasi. Memiliki berbagai bentuk disabilitas.</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 bg-blue-100 border-l-4 border-blue-600 p-4 rounded">
+                        <p class="text-sm text-gray-700">
+                            <i class="fas fa-info-circle text-blue-600 mr-2" aria-hidden="true"></i>
+                            <strong>Tahukah Anda?</strong> Screen reader membaca setiap elemen secara berurutan.
+                            Struktur HTML yang baik sangat penting untuk pengalaman pengguna tunanetra.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="keyboard-challenge" class="py-20 bg-gray-50">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        <i class="fas fa-keyboard text-orange-500 mr-2" aria-hidden="true"></i>
+                        Tantangan Navigasi Keyboard
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Coba navigasi website hanya menggunakan keyboard. Banyak pengguna dengan disabilitas motorik mengandalkan keyboard.
+                    </p>
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 inline-block text-left rounded">
+                        <p class="text-sm text-gray-700 mb-2">
+                            <strong>Petunjuk:</strong> Gunakan tombol keyboard berikut:
+                        </p>
+                        <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                            <li><kbd class="px-2 py-1 bg-white border rounded">Tab</kbd> - Pindah ke elemen berikutnya</li>
+                            <li><kbd class="px-2 py-1 bg-white border rounded">Shift + Tab</kbd> - Kembali ke elemen sebelumnya</li>
+                            <li><kbd class="px-2 py-1 bg-white border rounded">Enter</kbd> atau <kbd class="px-2 py-1 bg-white border rounded">Space</kbd> - Aktifkan elemen</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-xl p-8 mb-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900">Area Latihan</h3>
+                            <p class="text-gray-600">Navigasi semua 6 kartu di bawah menggunakan keyboard</p>
+                        </div>
+                        <div class="flex gap-3">
+                            <button
+                                id="startChallengeBtn"
+                                class="px-6 py-3 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 focus-visible transition shadow-md"
+                                aria-label="Start keyboard challenge">
+                                <i class="fas fa-flag-checkered mr-2" aria-hidden="true"></i>
+                                Mulai Tantangan
+                            </button>
+                            <button
+                                id="toggleMouseBtn"
+                                class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 focus-visible transition"
+                                aria-label="Disable mouse cursor">
+                                <i class="fas fa-mouse-pointer mr-2" aria-hidden="true"></i>
+                                Sembunyikan Kursor
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="challengeStatus" class="mb-6 p-4 bg-blue-50 border-l-4 border-blue-600 rounded hidden">
+                        <p class="text-gray-700">
+                            <i class="fas fa-info-circle text-blue-600 mr-2" aria-hidden="true"></i>
+                            <span id="challengeMessage">Tekan Tab untuk memulai navigasi...</span>
+                        </p>
+                    </div>
+
+                    <div class="keyboard-challenge-area grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div
+                            tabindex="0"
+                            class="challenge-card p-6 border-2 border-gray-300 rounded-xl hover:border-blue-500 focus:border-orange-500 transition cursor-pointer"
+                            data-card="1"
+                            role="button"
+                            aria-label="Card 1: Visual content">
+                            <i class="fas fa-eye text-3xl text-blue-600 mb-3" aria-hidden="true"></i>
+                            <h4 class="font-semibold text-gray-900 mb-2">Konten Visual</h4>
+                            <p class="text-sm text-gray-600">Alt text untuk gambar sangat penting</p>
+                        </div>
+
+                        <div
+                            tabindex="0"
+                            class="challenge-card p-6 border-2 border-gray-300 rounded-xl hover:border-blue-500 focus:border-orange-500 transition cursor-pointer"
+                            data-card="2"
+                            role="button"
+                            aria-label="Card 2: Color contrast">
+                            <i class="fas fa-palette text-3xl text-orange-500 mb-3" aria-hidden="true"></i>
+                            <h4 class="font-semibold text-gray-900 mb-2">Kontras Warna</h4>
+                            <p class="text-sm text-gray-600">Pastikan rasio kontras minimal 4.5:1</p>
+                        </div>
+
+                        <div
+                            tabindex="0"
+                            class="challenge-card p-6 border-2 border-gray-300 rounded-xl hover:border-blue-500 focus:border-orange-500 transition cursor-pointer"
+                            data-card="3"
+                            role="button"
+                            aria-label="Card 3: Keyboard navigation">
+                            <i class="fas fa-keyboard text-3xl text-blue-600 mb-3" aria-hidden="true"></i>
+                            <h4 class="font-semibold text-gray-900 mb-2">Navigasi Keyboard</h4>
+                            <p class="text-sm text-gray-600">Semua fungsi harus bisa diakses keyboard</p>
+                        </div>
+
+                        <div
+                            tabindex="0"
+                            class="challenge-card p-6 border-2 border-gray-300 rounded-xl hover:border-blue-500 focus:border-orange-500 transition cursor-pointer"
+                            data-card="4"
+                            role="button"
+                            aria-label="Card 4: Semantic HTML">
+                            <i class="fas fa-code text-3xl text-orange-500 mb-3" aria-hidden="true"></i>
+                            <h4 class="font-semibold text-gray-900 mb-2">HTML Semantik</h4>
+                            <p class="text-sm text-gray-600">Gunakan tag yang tepat untuk konten</p>
+                        </div>
+
+                        <div
+                            tabindex="0"
+                            class="challenge-card p-6 border-2 border-gray-300 rounded-xl hover:border-blue-500 focus:border-orange-500 transition cursor-pointer"
+                            data-card="5"
+                            role="button"
+                            aria-label="Card 5: ARIA labels">
+                            <i class="fas fa-tags text-3xl text-blue-600 mb-3" aria-hidden="true"></i>
+                            <h4 class="font-semibold text-gray-900 mb-2">ARIA Labels</h4>
+                            <p class="text-sm text-gray-600">Tambahkan konteks untuk screen reader</p>
+                        </div>
+
+                        <div
+                            tabindex="0"
+                            class="challenge-card p-6 border-2 border-gray-300 rounded-xl hover:border-blue-500 focus:border-orange-500 transition cursor-pointer"
+                            data-card="6"
+                            role="button"
+                            aria-label="Card 6: Responsive design">
+                            <i class="fas fa-mobile-alt text-3xl text-orange-500 mb-3" aria-hidden="true"></i>
+                            <h4 class="font-semibold text-gray-900 mb-2">Desain Responsif</h4>
+                            <p class="text-sm text-gray-600">Aksesibel di semua ukuran layar</p>
+                        </div>
+                    </div>
+
+                    <div id="successMessage" class="mt-6 p-4 bg-green-50 border-l-4 border-green-500 rounded hidden">
+                        <p class="text-green-700 font-semibold">
+                            <i class="fas fa-check-circle mr-2" aria-hidden="true"></i>
+                            Selamat! Anda berhasil menavigasi semua kartu menggunakan keyboard.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tentang" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        Mengapa Aksesibilitas Web Penting?
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        Aksesibilitas web memastikan semua orang, termasuk penyandang disabilitas,
+                        dapat mengakses dan berinteraksi dengan website Anda.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                    <div class="card-hover text-center p-8 bg-blue-50 rounded-xl">
+                        <i class="fas fa-eye-slash text-5xl text-blue-600 mb-4" aria-hidden="true"></i>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Tunanetra</h3>
+                        <p class="text-gray-600">Menggunakan screen reader dan membutuhkan struktur HTML yang baik</p>
+                    </div>
+
+                    <div class="card-hover text-center p-8 bg-orange-50 rounded-xl">
+                        <i class="fas fa-deaf text-5xl text-orange-500 mb-4" aria-hidden="true"></i>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Tunarungu</h3>
+                        <p class="text-gray-600">Memerlukan subtitle untuk video dan visual feedback untuk audio</p>
+                    </div>
+
+                    <div class="card-hover text-center p-8 bg-blue-50 rounded-xl">
+                        <i class="fas fa-hand-paper text-5xl text-blue-600 mb-4" aria-hidden="true"></i>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Disabilitas Motorik</h3>
+                        <p class="text-gray-600">Mengandalkan keyboard atau teknologi assistive untuk navigasi</p>
+                    </div>
+
+                    <div class="card-hover text-center p-8 bg-orange-50 rounded-xl">
+                        <i class="fas fa-brain text-5xl text-orange-500 mb-4" aria-hidden="true"></i>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Disabilitas Kognitif</h3>
+                        <p class="text-gray-600">Membutuhkan konten yang jelas, konsisten, dan mudah dipahami</p>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl shadow-2xl p-8 md:p-12 text-white">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-6">Prinsip WCAG (Web Content Accessibility Guidelines)</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-glasses text-2xl" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">Perceivable</h4>
+                                <p class="text-blue-100">Informasi harus dapat dipersepsikan oleh semua pengguna</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-hand-pointer text-2xl" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">Operable</h4>
+                                <p class="text-blue-100">Interface harus dapat dioperasikan oleh semua pengguna</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-lightbulb text-2xl" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">Understandable</h4>
+                                <p class="text-blue-100">Konten dan operasi harus mudah dipahami</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-shield-alt text-2xl" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">Robust</h4>
+                                <p class="text-blue-100">Konten harus kompatibel dengan berbagai teknologi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="fitur" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        Fitur Aksesibilitas yang Harus Ada
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        Implementasikan fitur-fitur ini untuk membuat website Anda lebih inklusif
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card-hover bg-white p-8 rounded-xl shadow-md">
+                        <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-text-height text-2xl text-blue-600" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Alt Text untuk Gambar</h3>
+                        <p class="text-gray-600">Deskripsi tekstual untuk semua gambar informatif agar dapat dibaca screen reader</p>
+                    </div>
+
+                    <div class="card-hover bg-white p-8 rounded-xl shadow-md">
+                        <div class="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-heading text-2xl text-orange-500" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Hierarki Heading</h3>
+                        <p class="text-gray-600">Struktur heading yang logis (H1, H2, H3) untuk navigasi yang mudah</p>
+                    </div>
+
+                    <div class="card-hover bg-white p-8 rounded-xl shadow-md">
+                        <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-circle text-2xl text-blue-600" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Kontras Warna</h3>
+                        <p class="text-gray-600">Rasio kontras minimal 4.5:1 antara teks dan background untuk keterbacaan</p>
+                    </div>
+
+                    <div class="card-hover bg-white p-8 rounded-xl shadow-md">
+                        <div class="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-mouse-pointer text-2xl text-orange-500" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Focus Indicators</h3>
+                        <p class="text-gray-600">Visual feedback yang jelas saat navigasi menggunakan keyboard</p>
+                    </div>
+
+                    <div class="card-hover bg-white p-8 rounded-xl shadow-md">
+                        <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-closed-captioning text-2xl text-blue-600" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Caption & Transkrip</h3>
+                        <p class="text-gray-600">Subtitle untuk video dan transkrip untuk konten audio</p>
+                    </div>
+
+                    <div class="card-hover bg-white p-8 rounded-xl shadow-md">
+                        <div class="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-expand-arrows-alt text-2xl text-orange-500" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Responsive Design</h3>
+                        <p class="text-gray-600">Tampilan yang optimal di berbagai ukuran layar dan perangkat</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gradient-to-br from-orange-500 to-orange-600">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                    Siap Membuat Web yang Inklusif?
+                </h2>
+                <p class="text-xl mb-8 text-orange-100">
+                    Mulai perjalanan Anda dalam menciptakan pengalaman web yang dapat diakses semua orang
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#beranda"
+                       class="px-8 py-4 bg-white text-orange-600 rounded-lg font-semibold hover:bg-orange-50 focus-visible transition shadow-lg">
+                        <i class="fas fa-rocket mr-2" aria-hidden="true"></i>
+                        Mulai Sekarang
+                    </a>
+                    <a href="#simulasi"
+                       class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-orange-600 focus-visible transition">
+                        <i class="fas fa-redo mr-2" aria-hidden="true"></i>
+                        Ulangi Simulasi
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-universal-access text-2xl text-blue-400" aria-hidden="true"></i>
+                        <span class="text-xl font-bold">SahabatDisabilitas</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Platform edukasi untuk menciptakan web yang inklusif dan accessible untuk semua.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Navigasi Cepat</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#beranda" class="text-gray-400 hover:text-white focus-visible transition">Beranda</a></li>
+                        <li><a href="#fitur" class="text-gray-400 hover:text-white focus-visible transition">Fitur</a></li>
+                        <li><a href="#simulasi" class="text-gray-400 hover:text-white focus-visible transition">Simulasi</a></li>
+                        <li><a href="#tentang" class="text-gray-400 hover:text-white focus-visible transition">Tentang</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Hubungi Kami</h3>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-white focus-visible transition" aria-label="Facebook">
+                            <i class="fab fa-facebook text-2xl" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white focus-visible transition" aria-label="Twitter">
+                            <i class="fab fa-twitter text-2xl" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white focus-visible transition" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin text-2xl" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white focus-visible transition" aria-label="Instagram">
+                            <i class="fab fa-instagram text-2xl" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400">
+                        <i class="fas fa-envelope mr-2" aria-hidden="true"></i>
+                        info@sahabatdisabilitas.com
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400">
+                    &copy; 2025 SahabatDisabilitas. Dibuat dengan <i class="fas fa-heart text-red-500" aria-hidden="true"></i> untuk web yang lebih inklusif.
+                </p>
+                <p class="text-gray-500 text-sm mt-2">
+                    <a href="#" class="hover:text-white focus-visible transition">Pernyataan Aksesibilitas</a> |
+                    <a href="#" class="hover:text-white focus-visible transition">Kebijakan Privasi</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                skip_to_main: "Skip to main content",
+                home_link: "Home",
+                features_link: "Features",
+                simulation_link: "Simulation",
+                about_link: "About",
+                high_contrast_btn: "High Contrast",
+                toggle_mobile_menu: "Toggle mobile menu",
+                home_aria: "SahabatDisabilitas Home",
+                hero_title_1: "Web for",
+                hero_title_2: "Everyone",
+                hero_subtitle: "Experience the challenges faced by people with disabilities when accessing the web. Learn, empathize, and create inclusive websites for all.",
+                start_learning_btn: "Start Learning",
+                try_simulation_btn: "Try Simulation",
+                listen_screen_reader: "Listen to Screen Reader Simulation",
+                stats_1_number: "15%",
+                stats_1_title: "Population",
+                stats_1_desc: "Has various forms of disabilities",
+                stats_2_number: "1 Billion+",
+                stats_2_title: "People",
+                stats_2_desc: "Need web accessibility",
+                stats_3_number: "2.3x Better",
+                stats_3_title: "UX for All",
+                stats_3_desc: "With web accessibility features",
+                simulation_title: "Screen Reader Simulation",
+                simulation_subtitle: "Hear how screen readers read websites for blind users",
+                screen_reader_audio: "Screen Reader Audio",
+                ready_to_play: "Ready to play",
+                stop_btn: "Stop",
+                audio_transcript: "Audio Transcript",
+                did_you_know: "Did you know?",
+                screen_reader_info: "Screen readers read each element sequentially. Good HTML structure is essential for the blind user experience.",
+                keyboard_challenge_title: "Keyboard Navigation Challenge",
+                keyboard_challenge_subtitle: "Try navigating the website using only the keyboard. Many users with motor disabilities rely on the keyboard.",
+                hint_text: "Hint: Use the following keyboard buttons:",
+                hint_tab: "Tab - Move to next element",
+                hint_shift_tab: "Shift + Tab - Return to previous element",
+                hint_enter: "Enter or Space - Activate element",
+                practice_area: "Practice Area",
+                practice_desc: "Navigate all 6 cards below using the keyboard",
+                start_challenge_btn: "Start Challenge",
+                hide_cursor_btn: "Hide Cursor",
+                challenge_message: "Press Tab to start navigating...",
+                success_message: "Congratulations! You successfully navigated all cards using the keyboard.",
+                visual_content: "Visual Content",
+                visual_desc: "Alt text for images is very important",
+                color_contrast: "Color Contrast",
+                contrast_desc: "Ensure minimum contrast ratio of 4.5:1",
+                keyboard_nav: "Keyboard Navigation",
+                keyboard_desc: "All functions must be keyboard accessible",
+                semantic_html: "Semantic HTML",
+                semantic_desc: "Use appropriate tags for content",
+                aria_labels: "ARIA Labels",
+                aria_desc: "Add context for screen readers",
+                responsive_design: "Responsive Design",
+                responsive_desc: "Accessible on all screen sizes",
+                about_title: "Why Web Accessibility Matters?",
+                about_subtitle: "Web accessibility ensures everyone, including people with disabilities, can access and interact with your website.",
+                blind: "Blind",
+                blind_desc: "Use screen readers and need good HTML structure",
+                deaf: "Deaf",
+                deaf_desc: "Need subtitles for videos and visual feedback for audio",
+                motor_disability: "Motor Disability",
+                motor_desc: "Rely on keyboard or assistive technology for navigation",
+                cognitive_disability: "Cognitive Disability",
+                cognitive_desc: "Need clear, consistent, and easy-to-understand content",
+                wcag_title: "WCAG (Web Content Accessibility Guidelines) Principles",
+                perceivable: "Perceivable",
+                perceivable_desc: "Information must be perceivable by all users",
+                operable: "Operable",
+                operable_desc: "Interface must be operable by all users",
+                understandable: "Understandable",
+                understandable_desc: "Content and operation must be easy to understand",
+                robust: "Robust",
+                robust_desc: "Content must be compatible with various technologies",
+                features_title: "Accessibility Features You Must Have",
+                features_subtitle: "Implement these features to make your website more inclusive",
+                alt_text_title: "Alt Text for Images",
+                alt_text_desc: "Textual descriptions for all informative images so screen readers can read them",
+                heading_hierarchy_title: "Heading Hierarchy",
+                heading_hierarchy_desc: "Logical heading structure (H1, H2, H3) for easy navigation",
+                color_contrast_title: "Color Contrast",
+                color_contrast_desc: "Minimum 4.5:1 contrast ratio between text and background for readability",
+                focus_indicators_title: "Focus Indicators",
+                focus_indicators_desc: "Clear visual feedback when navigating using keyboard",
+                captions_title: "Captions & Transcripts",
+                captions_desc: "Subtitles for videos and transcripts for audio content",
+                responsive_title: "Responsive Design",
+                responsive_desc: "Optimal display on various screen sizes and devices",
+                ready_inclusive_title: "Ready to Create an Inclusive Web?",
+                ready_inclusive_subtitle: "Start your journey in creating web experiences accessible to all",
+                start_now_btn: "Start Now",
+                repeat_simulation_btn: "Repeat Simulation",
+                company_desc: "Educational platform for creating inclusive and accessible web for everyone.",
+                quick_nav: "Quick Navigation",
+                contact_us: "Contact Us",
+                accessibility_statement: "Accessibility Statement",
+                privacy_policy: "Privacy Policy",
+                footer_copy: "Made with",
+                footer_love: "for a more inclusive web.",
+                playing: "Playing...",
+                paused: "Paused",
+                stopped: "Stopped",
+                error_audio_not_found: "Error: Audio file not found",
+                en_audio_not_found: "Audio file not found at assets/audio/en.mp3. Make sure the file exists.",
+                play_audio: "Play screen reader audio",
+                pause_audio: "Pause screen reader audio",
+                cards_visited: "Card",
+                of_six: "of 6 visited. Continue navigating with Tab!",
+                perfect_navigation: "Perfect! You successfully navigated all cards!",
+                visited_message: "visited",
+                continue_tab: "Continue navigating with Tab!",
+                show_cursor_btn: "Show Cursor",
+                transcript_en: `<p>Welcome to SahabatDisabilitas. Main navigation. Link, Home. Link, Features. Link, Simulation. Link, About. Button, High Contrast.</p>
+                            <p>Heading level 1: Web for Everyone. Paragraph: Experience the challenges faced by people with disabilities when accessing the web.</p>
+                            <p>Link, Start Learning. Link, Try Simulation. Button, Listen to Screen Reader Simulation.</p>
+                            <p>Region: Statistics. Heading level 3: 15 percent Population. Has various forms of disabilities.</p>`
+            },
+            id: {
+                skip_to_main: "Lewati ke konten utama",
+                home_link: "Beranda",
+                features_link: "Fitur",
+                simulation_link: "Simulasi",
+                about_link: "Tentang",
+                high_contrast_btn: "Kontras Tinggi",
+                toggle_mobile_menu: "Buka/tutup menu mobile",
+                home_aria: "SahabatDisabilitas Beranda",
+                hero_title_1: "Web untuk",
+                hero_title_2: "Semua Orang",
+                hero_subtitle: "Rasakan langsung tantangan yang dihadapi penyandang disabilitas dalam mengakses web. Belajar, berempati, dan ciptakan website yang inklusif untuk semua.",
+                start_learning_btn: "Mulai Belajar",
+                try_simulation_btn: "Coba Simulasi",
+                listen_screen_reader: "Dengarkan Simulasi Screen Reader",
+                stats_1_number: "15%",
+                stats_1_title: "Populasi",
+                stats_1_desc: "Memiliki berbagai bentuk disabilitas",
+                stats_2_number: "1 Miliar+",
+                stats_2_title: "Orang",
+                stats_2_desc: "Membutuhkan aksesibilitas web",
+                stats_3_number: "2.3x Lebih Baik",
+                stats_3_title: "UX untuk Semua",
+                stats_3_desc: "Dengan fitur aksesibilitas web",
+                simulation_title: "Simulasi Screen Reader",
+                simulation_subtitle: "Dengarkan bagaimana screen reader membaca website untuk pengguna tunanetra",
+                screen_reader_audio: "Screen Reader Audio",
+                ready_to_play: "Siap diputar",
+                stop_btn: "Stop",
+                audio_transcript: "Transkrip Audio",
+                did_you_know: "Tahukah Anda?",
+                screen_reader_info: "Screen reader membaca setiap elemen secara berurutan. Struktur HTML yang baik sangat penting untuk pengalaman pengguna tunanetra.",
+                keyboard_challenge_title: "Tantangan Navigasi Keyboard",
+                keyboard_challenge_subtitle: "Coba navigasi website hanya menggunakan keyboard. Banyak pengguna dengan disabilitas motorik mengandalkan keyboard.",
+                hint_text: "Petunjuk: Gunakan tombol keyboard berikut:",
+                hint_tab: "Tab - Pindah ke elemen berikutnya",
+                hint_shift_tab: "Shift + Tab - Kembali ke elemen sebelumnya",
+                hint_enter: "Enter atau Space - Aktifkan elemen",
+                practice_area: "Area Latihan",
+                practice_desc: "Navigasi semua 6 kartu di bawah menggunakan keyboard",
+                start_challenge_btn: "Mulai Tantangan",
+                hide_cursor_btn: "Sembunyikan Kursor",
+                challenge_message: "Tekan Tab untuk memulai navigasi...",
+                success_message: "Selamat! Anda berhasil menavigasi semua kartu menggunakan keyboard.",
+                visual_content: "Konten Visual",
+                visual_desc: "Alt text untuk gambar sangat penting",
+                color_contrast: "Kontras Warna",
+                contrast_desc: "Pastikan rasio kontras minimal 4.5:1",
+                keyboard_nav: "Navigasi Keyboard",
+                keyboard_desc: "Semua fungsi harus bisa diakses keyboard",
+                semantic_html: "HTML Semantik",
+                semantic_desc: "Gunakan tag yang tepat untuk konten",
+                aria_labels: "ARIA Labels",
+                aria_desc: "Tambahkan konteks untuk screen reader",
+                responsive_design: "Desain Responsif",
+                responsive_desc: "Aksesibel di semua ukuran layar",
+                about_title: "Mengapa Aksesibilitas Web Penting?",
+                about_subtitle: "Aksesibilitas web memastikan semua orang, termasuk penyandang disabilitas, dapat mengakses dan berinteraksi dengan website Anda.",
+                blind: "Tunanetra",
+                blind_desc: "Menggunakan screen reader dan membutuhkan struktur HTML yang baik",
+                deaf: "Tunarungu",
+                deaf_desc: "Memerlukan subtitle untuk video dan visual feedback untuk audio",
+                motor_disability: "Disabilitas Motorik",
+                motor_desc: "Mengandalkan keyboard atau teknologi assistive untuk navigasi",
+                cognitive_disability: "Disabilitas Kognitif",
+                cognitive_desc: "Membutuhkan konten yang jelas, konsisten, dan mudah dipahami",
+                wcag_title: "Prinsip WCAG (Web Content Accessibility Guidelines)",
+                perceivable: "Perceivable",
+                perceivable_desc: "Informasi harus dapat dipersepsikan oleh semua pengguna",
+                operable: "Operable",
+                operable_desc: "Interface harus dapat dioperasikan oleh semua pengguna",
+                understandable: "Understandable",
+                understandable_desc: "Konten dan operasi harus mudah dipahami",
+                robust: "Robust",
+                robust_desc: "Konten harus kompatibel dengan berbagai teknologi",
+                features_title: "Fitur Aksesibilitas yang Harus Ada",
+                features_subtitle: "Implementasikan fitur-fitur ini untuk membuat website Anda lebih inklusif",
+                alt_text_title: "Alt Text untuk Gambar",
+                alt_text_desc: "Deskripsi tekstual untuk semua gambar informatif agar dapat dibaca screen reader",
+                heading_hierarchy_title: "Hierarki Heading",
+                heading_hierarchy_desc: "Struktur heading yang logis (H1, H2, H3) untuk navigasi yang mudah",
+                color_contrast_title: "Kontras Warna",
+                color_contrast_desc: "Rasio kontras minimal 4.5:1 antara teks dan background untuk keterbacaan",
+                focus_indicators_title: "Focus Indicators",
+                focus_indicators_desc: "Visual feedback yang jelas saat navigasi menggunakan keyboard",
+                captions_title: "Caption & Transkrip",
+                captions_desc: "Subtitle untuk video dan transkrip untuk konten audio",
+                responsive_title: "Desain Responsif",
+                responsive_desc: "Tampilan yang optimal di berbagai ukuran layar dan perangkat",
+                ready_inclusive_title: "Siap Membuat Web yang Inklusif?",
+                ready_inclusive_subtitle: "Mulai perjalanan Anda dalam menciptakan pengalaman web yang dapat diakses semua orang",
+                start_now_btn: "Mulai Sekarang",
+                repeat_simulation_btn: "Ulangi Simulasi",
+                company_desc: "Platform edukasi untuk menciptakan web yang inklusif dan accessible untuk semua.",
+                quick_nav: "Navigasi Cepat",
+                contact_us: "Hubungi Kami",
+                accessibility_statement: "Pernyataan Aksesibilitas",
+                privacy_policy: "Kebijakan Privasi",
+                footer_copy: "Dibuat dengan",
+                footer_love: "untuk web yang lebih inklusif.",
+                playing: "Sedang diputar...",
+                paused: "Dijeda",
+                stopped: "Dihentikan",
+                error_audio_not_found: "Error: File audio tidak ditemukan",
+                id_audio_not_found: "File audio tidak ditemukan di assets/audio/id.mp3. Pastikan file tersebut ada.",
+                play_audio: "Play screen reader audio",
+                pause_audio: "Pause screen reader audio",
+                cards_visited: "Kartu",
+                of_six: "dari 6 dikunjungi. Terus navigasi dengan Tab!",
+                perfect_navigation: "Sempurna! Anda berhasil menavigasi semua kartu!",
+                visited_message: "dikunjungi",
+                continue_tab: "Terus navigasi dengan Tab!",
+                show_cursor_btn: "Tampilkan Kursor",
+                transcript_id: `<p>Selamat datang di SahabatDisabilitas. Navigasi utama. Link, Beranda. Link, Fitur. Link, Simulasi. Link, Tentang. Tombol, Kontras Tinggi.</p>
+                            <p>Heading level 1: Web untuk Semua Orang. Paragraf: Rasakan langsung tantangan yang dihadapi penyandang disabilitas dalam mengakses web.</p>
+                            <p>Link, Mulai Belajar. Link, Coba Simulasi. Tombol, Dengarkan Simulasi Screen Reader.</p>
+                            <p>Region: Statistik. Heading level 3: 15 persen Populasi. Memiliki berbagai bentuk disabilitas.</p>`
+            }
+        };
+
+        let currentLanguage = localStorage.getItem('selectedLanguage') || 'id';
+
+        function t(key) {
+            return translations[currentLanguage][key] || translations['id'][key] || key;
+        }
+
+        function updatePageContent() {
+            document.documentElement.lang = currentLanguage;
+
+            const updates = {
+                skip_to_main: () => document.querySelector('[class*="sr-only"]').textContent = t('skip_to_main'),
+                home_link: () => document.querySelectorAll('a[href="#beranda"]').forEach(el => el.textContent = t('home_link')),
+                features_link: () => document.querySelectorAll('a[href="#fitur"]').forEach(el => el.textContent = t('features_link')),
+                simulation_link: () => document.querySelectorAll('a[href="#simulasi"]').forEach(el => el.textContent = t('simulation_link')),
+                about_link: () => document.querySelectorAll('a[href="#tentang"]').forEach(el => el.textContent = t('about_link')),
+                high_contrast_btn: () => {
+                    document.querySelectorAll('[aria-label*="contrast"], [aria-label*="Contrast"]').forEach(el => {
+                        el.setAttribute('aria-label', t('high_contrast_btn'));
+                    });
+                    document.querySelectorAll('#contrastToggle span, #contrastToggleMobile span').forEach(el => el.textContent = t('high_contrast_btn'));
+                },
+                hero_title: () => {
+                    const h1 = document.querySelector('h1');
+                    if (h1) {
+                        h1.innerHTML = t('hero_title_1') + ' <span class="text-blue-600">' + t('hero_title_2') + '</span>';
+                    }
+                },
+                hero_subtitle: () => {
+                    const p = document.querySelector('section#beranda p.text-lg');
+                    if (p) p.textContent = t('hero_subtitle');
+                },
+                start_learning_btn: () => {
+                    const btn = document.querySelector('a[href="#tentang"]');
+                    if (btn) {
+                        const span = btn.querySelector(':not(i)') || btn;
+                        const existingText = btn.textContent.replace(/^\s+|\s+$/g, '').split('\n')[0];
+                        if (existingText.includes('Mulai') || existingText.includes('Start')) {
+                            btn.innerHTML = '<i class="fas fa-graduation-cap mr-2" aria-hidden="true"></i>' + t('start_learning_btn');
+                        }
+                    }
+                },
+                simulation_title: () => {
+                    const h2 = document.querySelector('section#simulasi h2');
+                    if (h2) {
+                        h2.innerHTML = '<i class="fas fa-headphones text-blue-600 mr-2" aria-hidden="true"></i>' + t('simulation_title');
+                    }
+                },
+                audio_status: () => {
+                    const status = document.getElementById('audioStatus');
+                    if (status) status.textContent = t('ready_to_play');
+                },
+                stop_btn: () => {
+                    const btn = document.getElementById('stopBtn');
+                    if (btn) btn.innerHTML = '<i class="fas fa-stop mr-2" aria-hidden="true"></i>' + t('stop_btn');
+                },
+                keyboard_challenge_title: () => {
+                    const h2 = document.querySelector('section#keyboard-challenge h2');
+                    if (h2) {
+                        h2.innerHTML = '<i class="fas fa-keyboard text-orange-500 mr-2" aria-hidden="true"></i>' + t('keyboard_challenge_title');
+                    }
+                },
+                challenge_buttons: () => {
+                    const startBtn = document.getElementById('startChallengeBtn');
+                    if (startBtn) startBtn.innerHTML = '<i class="fas fa-flag-checkered mr-2" aria-hidden="true"></i>' + t('start_challenge_btn');
+
+                    const toggleBtn = document.getElementById('toggleMouseBtn');
+                    if (toggleBtn) {
+                        const isNoMouse = document.body.classList.contains('no-mouse');
+                        toggleBtn.innerHTML = '<i class="fas fa-mouse-pointer mr-2" aria-hidden="true"></i>' + (isNoMouse ? t('show_cursor_btn') : t('hide_cursor_btn'));
+                    }
+                },
+                success_message: () => {
+                    const msg = document.getElementById('successMessage');
+                    if (msg) {
+                        msg.innerHTML = '<p class="text-green-700 font-semibold"><i class="fas fa-check-circle mr-2" aria-hidden="true"></i>' + t('success_message') + '</p>';
+                    }
+                },
+                about_title: () => {
+                    const h2 = document.querySelector('section#tentang h2');
+                    if (h2) h2.textContent = t('about_title');
+                },
+                wcag_title: () => {
+                    const h3 = document.querySelector('section#tentang h3');
+                    if (h3) h3.textContent = t('wcag_title');
+                },
+                features_title: () => {
+                    const h2 = document.querySelector('section#fitur h2');
+                    if (h2) h2.textContent = t('features_title');
+                },
+                ready_inclusive_title: () => {
+                    const h2 = document.querySelector('section[class*="orange-500"] h2');
+                    if (h2) h2.textContent = t('ready_inclusive_title');
+                },
+                footer_company: () => {
+                    const footerDesc = document.querySelector('footer div p.text-gray-400');
+                    if (footerDesc) footerDesc.textContent = t('company_desc');
+                },
+                audio_player: () => {
+                    const audioPath = currentLanguage === 'en' ? 'assets/audio/en.mp3' : 'assets/audio/id.mp3';
+                    audio.src = audioPath;
+                },
+                transcript: () => {
+                    const transcriptDiv = document.getElementById('transcript');
+                    if (transcriptDiv) {
+                        transcriptDiv.innerHTML = currentLanguage === 'en' ? t('transcript_en') : t('transcript_id');
+                    }
+                }
+            };
+
+            Object.values(updates).forEach(update => {
+                try { update(); } catch(e) { console.log('Update skipped'); }
+            });
+        }
+
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('selectedLanguage', lang);
+            updatePageContent();
+        }
+
+        function updateLanguageButtonStyles() {
+            const isIndonesian = currentLanguage === 'id';
+
+            const langBtnId = document.getElementById('langBtn-id');
+            const langBtnEn = document.getElementById('langBtn-en');
+            const langBtnMobileId = document.getElementById('langBtnMobile-id');
+            const langBtnMobileEn = document.getElementById('langBtnMobile-en');
+
+            [langBtnId, langBtnMobileId].forEach(btn => {
+                if (btn) {
+                    if (isIndonesian) {
+                        btn.classList.add('bg-blue-600', 'text-white', 'hover:bg-blue-700');
+                        btn.classList.remove('text-gray-700', 'hover:bg-gray-100');
+                    } else {
+                        btn.classList.remove('bg-blue-600', 'text-white', 'hover:bg-blue-700');
+                        btn.classList.add('text-gray-700', 'hover:bg-gray-100');
+                    }
+                }
+            });
+
+            [langBtnEn, langBtnMobileEn].forEach(btn => {
+                if (btn) {
+                    if (!isIndonesian) {
+                        btn.classList.add('bg-blue-600', 'text-white', 'hover:bg-blue-700');
+                        btn.classList.remove('text-gray-700', 'hover:bg-gray-100');
+                    } else {
+                        btn.classList.remove('bg-blue-600', 'text-white', 'hover:bg-blue-700');
+                        btn.classList.add('text-gray-700', 'hover:bg-gray-100');
+                    }
+                }
+            });
+        }
+
+        function setupLanguageSwitchers() {
+            document.querySelectorAll('[data-lang]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    setLanguage(btn.getAttribute('data-lang'));
+                    updateLanguageButtonStyles();
+                });
+            });
+        }
+
+        const contrastToggle = document.getElementById('contrastToggle');
+        const contrastToggleMobile = document.getElementById('contrastToggleMobile');
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const body = document.body;
+
+        function toggleHighContrast() {
+            body.classList.toggle('high-contrast');
+            const isHighContrast = body.classList.contains('high-contrast');
+            localStorage.setItem('highContrast', isHighContrast);
+
+            const buttons = [contrastToggle, contrastToggleMobile];
+            buttons.forEach(btn => {
+                if (btn) {
+                    btn.setAttribute('aria-pressed', isHighContrast);
+                }
+            });
+        }
+
+        if (localStorage.getItem('highContrast') === 'true') {
+            body.classList.add('high-contrast');
+            [contrastToggle, contrastToggleMobile].forEach(btn => {
+                if (btn) btn.setAttribute('aria-pressed', 'true');
+            });
+        }
+
+        contrastToggle.addEventListener('click', toggleHighContrast);
+        contrastToggleMobile.addEventListener('click', toggleHighContrast);
+
+        mobileMenuToggle.addEventListener('click', () => {
+            const isExpanded = mobileMenu.style.maxHeight !== '0px' && mobileMenu.style.maxHeight !== '';
+            mobileMenu.style.maxHeight = isExpanded ? '0px' : mobileMenu.scrollHeight + 'px';
+            mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
+        });
+
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.style.maxHeight = '0px';
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        const audio = new Audio('assets/audio/id.mp3');
+        let isPlaying = false;
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        audio.addEventListener('loadedmetadata', () => {
+            document.getElementById('totalTime').textContent = formatTime(audio.duration);
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            const progress = (audio.currentTime / audio.duration) * 100;
+            document.getElementById('audioProgress').style.width = progress + '%';
+            document.getElementById('currentTime').textContent = formatTime(audio.currentTime);
+        });
+
+        audio.addEventListener('ended', () => {
+            isPlaying = false;
+            updatePlayButton(false);
+            document.getElementById('audioStatus').textContent = 'Selesai diputar';
+            audio.currentTime = 0;
+        });
+
+        audio.addEventListener('error', () => {
+            document.getElementById('audioStatus').textContent = 'Error: File audio tidak ditemukan';
+            alert('File audio tidak ditemukan di assets/audio/id.mp3. Pastikan file tersebut ada.');
+        });
+
+        function playScreenReaderSimulation() {
+            if (isPlaying) {
+                audio.pause();
+                isPlaying = false;
+                updatePlayButton(false);
+                document.getElementById('audioStatus').textContent = 'Dijeda';
+                return;
+            }
+
+            audio.play()
+                .then(() => {
+                    isPlaying = true;
+                    updatePlayButton(true);
+                    document.getElementById('audioStatus').textContent = 'Sedang diputar...';
+                })
+                .catch(err => {
+                    console.error('Error playing audio:', err);
+                    document.getElementById('audioStatus').textContent = 'Gagal memutar audio';
+                    alert('Gagal memutar audio. Pastikan file ada di assets/audio/id.mp3');
+                });
+        }
+
+        function updatePlayButton(playing) {
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            const icon = playPauseBtn.querySelector('i');
+
+            if (playing) {
+                icon.classList.remove('fa-play');
+                icon.classList.add('fa-pause');
+                playPauseBtn.setAttribute('aria-label', 'Pause screen reader audio');
+            } else {
+                icon.classList.remove('fa-pause');
+                icon.classList.add('fa-play');
+                playPauseBtn.setAttribute('aria-label', 'Play screen reader audio');
+            }
+        }
+
+        document.getElementById('playPauseBtn').addEventListener('click', playScreenReaderSimulation);
+        document.getElementById('heroScreenReaderBtn').addEventListener('click', () => {
+            document.getElementById('simulasi').scrollIntoView({ behavior: 'smooth' });
+            setTimeout(playScreenReaderSimulation, 500);
+        });
+
+        document.getElementById('stopBtn').addEventListener('click', () => {
+            audio.pause();
+            audio.currentTime = 0;
+            isPlaying = false;
+            updatePlayButton(false);
+            document.getElementById('audioStatus').textContent = 'Dihentikan';
+            document.getElementById('audioProgress').style.width = '0%';
+            document.getElementById('currentTime').textContent = '0:00';
+        });
+
+        const challengeCards = document.querySelectorAll('.challenge-card');
+        const startChallengeBtn = document.getElementById('startChallengeBtn');
+        const toggleMouseBtn = document.getElementById('toggleMouseBtn');
+        const challengeStatus = document.getElementById('challengeStatus');
+        const challengeMessage = document.getElementById('challengeMessage');
+        const successMessage = document.getElementById('successMessage');
+
+        let visitedCards = new Set();
+        let challengeActive = false;
+
+        startChallengeBtn.addEventListener('click', () => {
+            challengeActive = true;
+            visitedCards.clear();
+            challengeStatus.classList.remove('hidden');
+            successMessage.classList.add('hidden');
+            challengeMessage.textContent = 'Tekan Tab untuk memulai navigasi. Kunjungi semua 6 kartu!';
+
+            challengeCards.forEach(card => {
+                card.style.backgroundColor = '';
+            });
+        });
+
+        toggleMouseBtn.addEventListener('click', () => {
+            body.classList.toggle('no-mouse');
+            const isNoMouse = body.classList.contains('no-mouse');
+            toggleMouseBtn.innerHTML = isNoMouse
+                ? '<i class="fas fa-mouse-pointer mr-2" aria-hidden="true"></i>Tampilkan Kursor'
+                : '<i class="fas fa-mouse-pointer mr-2" aria-hidden="true"></i>Sembunyikan Kursor';
+        });
+
+        challengeCards.forEach(card => {
+            card.addEventListener('focus', () => {
+                if (challengeActive) {
+                    const cardNum = card.getAttribute('data-card');
+                    if (!visitedCards.has(cardNum)) {
+                        visitedCards.add(cardNum);
+                        card.style.backgroundColor = '#d1fae5';
+
+                        challengeMessage.textContent = `Kartu ${visitedCards.size} dari 6 dikunjungi. Terus navigasi dengan Tab!`;
+
+                        if (visitedCards.size === 6) {
+                            successMessage.classList.remove('hidden');
+                            challengeMessage.textContent = 'Sempurna! Anda berhasil menavigasi semua kartu!';
+                            challengeActive = false;
+                        }
+                    }
+                }
+            });
+
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        card.style.transform = '';
+                    }, 100);
+                }
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updatePageContent();
+            setupLanguageSwitchers();
+            updateLanguageButtonStyles();
+        });
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                updatePageContent();
+                setupLanguageSwitchers();
+                updateLanguageButtonStyles();
+            });
+        } else {
+            updatePageContent();
+            setupLanguageSwitchers();
+            updateLanguageButtonStyles();
+        }
+    </script>
+
+</body>
+</html>
