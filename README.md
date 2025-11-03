@@ -3,7 +3,7 @@
 ## Informasi Lomba
 **Nama Lomba:** IT COMMIT 2025 - Web Design Competition  
 **Tema:** "Innovation Beyond Limits: Empowering the Future with IT"  
-**Kategori:** Website Development  
+**Kategori:** Website Design  
 
 ## Deskripsi Proyek
 **SahabatDisabilitas** adalah platform edukasi interaktif yang bertujuan meningkatkan kesadaran tentang pentingnya aksesibilitas web melalui pengalaman langsung. Website ini mengajak pengunjung untuk merasakan tantangan yang dihadapi penyandang disabilitas dalam mengakses konten digital, sekaligus memberikan solusi praktis untuk menciptakan web yang inklusif.
