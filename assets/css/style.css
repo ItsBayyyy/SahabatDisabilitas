@@ -1,0 +1,109 @@
+* {
+  scroll-behavior: smooth;
+}
+
+body.high-contrast {
+  background-color: #000000 !important;
+  color: #fbbf24 !important;
+}
+
+body.high-contrast * {
+  border-color: #fbbf24 !important;
+}
+
+body.high-contrast .bg-white {
+  background-color: #000000 !important;
+}
+
+body.high-contrast .bg-blue-600,
+body.high-contrast .bg-blue-500,
+body.high-contrast .bg-orange-500,
+body.high-contrast .bg-gray-50,
+body.high-contrast .bg-gray-100,
+body.high-contrast .bg-gray-800,
+body.high-contrast .bg-gray-900 {
+  background-color: #000000 !important;
+}
+
+body.high-contrast .text-gray-600,
+body.high-contrast .text-gray-700,
+body.high-contrast .text-gray-800,
+body.high-contrast .text-gray-900,
+body.high-contrast .text-white,
+body.high-contrast .text-blue-600,
+body.high-contrast .text-orange-500 {
+  color: #fbbf24 !important;
+}
+
+body.high-contrast button,
+body.high-contrast a {
+  border: 2px solid #fbbf24 !important;
+  color: #fbbf24 !important;
+}
+
+body.high-contrast .card-hover {
+  background-color: #1a1a1a !important;
+}
+
+.focus-visible:focus {
+  outline: 4px solid #2563eb;
+  outline-offset: 4px;
+}
+
+.keyboard-challenge-area *:focus {
+  outline: 4px solid #f97316;
+  outline-offset: 2px;
+  background-color: #fef3c7;
+}
+
+body.no-mouse {
+  cursor: none !important;
+}
+
+body.no-mouse * {
+  cursor: none !important;
+}
+
+.audio-progress {
+  transition: width 0.1s linear;
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+#mobileMenu {
+  transition: max-height 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.transcript-text {
+  line-height: 1.8;
+}
+
+.transcript-highlight {
+  background-color: #fef3c7;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
