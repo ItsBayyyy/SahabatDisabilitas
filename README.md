@@ -1,14 +1,14 @@
 # SahabatDisabilitas - Platform Edukasi Aksesibilitas Web
 
-## 🏆 Informasi Lomba
+## Informasi Lomba
 **Nama Lomba:** IT COMMIT 2025 - Web Design Competition  
 **Tema:** "Innovation Beyond Limits: Empowering the Future with IT"  
 **Kategori:** Website Development  
 
-## 📖 Deskripsi Proyek
+## Deskripsi Proyek
 **SahabatDisabilitas** adalah platform edukasi interaktif yang bertujuan meningkatkan kesadaran tentang pentingnya aksesibilitas web melalui pengalaman langsung. Website ini mengajak pengunjung untuk merasakan tantangan yang dihadapi penyandang disabilitas dalam mengakses konten digital, sekaligus memberikan solusi praktis untuk menciptakan web yang inklusif.
 
-## 🎯 Tujuan dan Manfaat
+## Tujuan dan Manfaat
 ### **Tujuan:**
 - Mengedukasi developer tentang prinsip aksesibilitas web
 - Membangun empati melalui simulasi interaktif
@@ -19,7 +19,7 @@
 - Memberikan pengalaman langsung tentang tantangan aksesibilitas
 - Menjadi referensi implementasi fitur aksesibilitas
 
-## ✨ Fitur Unggulan
+## Fitur Unggulan
 
 ### 1. **High Contrast Mode**
 - Toggle untuk mengaktifkan mode kontras tinggi
@@ -45,7 +45,7 @@
 - Micro-interactions untuk feedback pengguna
 - Transisi halus antar section
 
-## 🛠 Teknologi yang Digunakan
+## Teknologi yang Digunakan
 - **Frontend:** HTML5, CSS3, JavaScript (ES6+)
 - **Framework:** Tailwind CSS
 - **Icons:** Font Awesome 6.4.0
@@ -53,7 +53,7 @@
 - **Audio:** MP3 dengan custom audio player
 - **Hosting:** GitHub Page
 
-## ♿ Fitur Aksesibilitas yang Diimplementasikan
+## Fitur Aksesibilitas yang Diimplementasikan
 
 ### **Teknis:**
 - ✅ Semantic HTML5
@@ -76,7 +76,7 @@
 - ✅ Logical heading structure
 - ✅ Descriptive link texts
 
-## 🎮 Cara Menggunakan Fitur Interaktif
+## Cara Menggunakan Fitur Interaktif
 
 ### **1. Mode Kontras Tinggi**
 - Klik tombol "Kontras Tinggi" di navigation bar
@@ -94,7 +94,7 @@
 - Coba akses semua 6 kartu tanpa mouse
 - Gunakan Enter/Space untuk interaksi
 
-## 📱 Pengalaman Pengguna
+## Pengalaman Pengguna
 
 ### **Mobile:**
 - Navigation hamburger menu
@@ -111,7 +111,7 @@
 - Hover states dan animations
 - Multi-column layouts
 
-## 🎨 Aspek Desain dan Estetika
+## Aspek Desain dan Estetika
 
 ### **Color Palette:**
 - **Primary:** Blue (#2563eb) - Trust, professionalism
@@ -128,36 +128,19 @@
 - Consistent padding dan margins
 - Visual balance dengan whitespace
 
-## 🚀 Inovasi dan Kesesuaian Tema
+## Inovasi dan Kesesuaian Tema
 
 ### **"Innovation Beyond Limits":**
-- 🎯 **Beyond Physical Limits:** Mendobrak batasan akses digital untuk penyandang disabilitas
-- 💡 **Empathetic Technology:** Menggunakan simulasi untuk membangun pemahaman
-- 🌐 **Scalable Impact:** Edukasi yang dapat mengubah praktik development web
+- **Beyond Physical Limits:** Mendobrak batasan akses digital untuk penyandang disabilitas
+- **Empathetic Technology:** Menggunakan simulasi untuk membangun pemahaman
+- **Scalable Impact:** Edukasi yang dapat mengubah praktik development web
 
 ### **"Empowering the Future with IT":**
-- 🔧 **Practical Solutions:** Memberikan tools dan pengetahuan implementatif
-- 👥 **Community Focus:** Memberdayakan developer untuk perubahan positif
-- 📈 **Sustainable Impact:** Pengetahuan yang applicable dalam proyek nyata
+- **Practical Solutions:** Memberikan tools dan pengetahuan implementatif
+- **Community Focus:** Memberdayakan developer untuk perubahan positif
+- **Sustainable Impact:** Pengetahuan yang applicable dalam proyek nyata
 
-## 📁 Struktur Proyek
-
-sahabat-disabilitas/
-├── index.html
-├── assets/
-│ ├── css/
-│ │ └── style.css
-│ ├── js/
-│ │ ├── script.js
-│ │ └── aos.js
-│ ├── logo/
-│ │ ├── logo_1.png
-│ │ └── logo_2.png
-│ └── audio/
-│ └── screen-reader-demo.mp3
-└── README.md
-
-## 🌟 Pesan untuk Juri
+## The End
 
 Website **SahabatDisabilitas** tidak hanya sekadar demonstrasi teknikal, tetapi merupakan **manifestasi nyata dari semangat inovasi tanpa batas**. Kami percaya bahwa teknologi seharusnya memberdayakan setiap individu, tanpa terkecuali.
 
