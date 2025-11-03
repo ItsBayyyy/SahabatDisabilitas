@@ -51,7 +51,7 @@
 - **Icons:** Font Awesome 6.4.0
 - **Animasi:** AOS (Animate On Scroll)
 - **Audio:** MP3 dengan custom audio player
-- **Hosting:** Static website (Netlify/Vercel compatible)
+- **Hosting:** GitHub Page
 
 ## ♿ Fitur Aksesibilitas yang Diimplementasikan
 
