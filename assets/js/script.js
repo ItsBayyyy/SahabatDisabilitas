@@ -3,8 +3,21 @@ const contrastToggle = document.getElementById("contrastToggle");
 const contrastToggleMobile = document.getElementById("contrastToggleMobile");
 const mobileMenuToggle = document.getElementById("mobileMenuToggle");
 const mobileMenu = document.getElementById("mobileMenu");
-const backToTopBtn = document.getElementById("backToTop");
 const body = document.body;
+
+// Audio Player dengan Sliding Highlight Effect
+const audio = new Audio("assets/audio/id.mp3");
+let isPlaying = false;
+let currentHighlightIndex = -1;
+let previousHighlightIndex = -1;
+
+// Timing data untuk setiap paragraf [start, end] dalam detik
+const transcriptTiming = [
+    [0, 9],
+    [9, 26],
+    [26, 40],
+    [40, 55]
+];
 
 function toggleHighContrast() {
     body.classList.toggle("high-contrast");
@@ -22,62 +35,6 @@ function toggleHighContrast() {
     });
 }
 
-function toggleBackToTop() {
-  const scrollY = window.pageYOffset;
-  const windowHeight = window.innerHeight;
-  const documentHeight = document.documentElement.scrollHeight;
-  
-  const scrollProgress = scrollY / (documentHeight - windowHeight);
-  const progressPercentage = Math.min(scrollProgress * 100, 100);
-
-  updateProgressCircle(progressPercentage);
-
-  if (scrollY > 500 || (documentHeight - scrollY - windowHeight) < 100) {
-      backToTopBtn.classList.remove("hide");
-      backToTopBtn.classList.add("show");
-  } else {
-      backToTopBtn.classList.remove("show");
-      backToTopBtn.classList.add("hide");
-  }
-}
-
-function updateProgressCircle(progress) {
-  const progressCircle = document.getElementById("progressCircle");
-  if (!progressCircle) return;
-  
-  // Calculate dashoffset (283 is circumference: 2 * π * 45)
-  const circumference = 2 * Math.PI * 45;
-  const dashoffset = circumference - (progress / 100) * circumference;
-  
-  progressCircle.style.strokeDashoffset = dashoffset;
-  
-  if (progress > 80) {
-      progressCircle.style.stroke = "#f97316"; // Orange when near bottom
-  } else if (progress > 50) {
-      progressCircle.style.stroke = "#3b82f6"; // Blue
-  } else {
-      progressCircle.style.stroke = "#ffffff"; // White
-  }
-}
-
-function scrollToTop() {
-  window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-  });
-  
-  setTimeout(() => {
-      updateProgressCircle(0);
-  }, 300);
-  
-  setTimeout(() => {
-      const skipLink = document.querySelector('a[href="#main-content"]');
-      if (skipLink) {
-          skipLink.focus();
-      }
-  }, 500);
-}
-
 // Initialize high contrast mode
 if (localStorage.getItem("highContrast") === "true") {
     body.classList.add("high-contrast");
@@ -89,50 +46,35 @@ if (localStorage.getItem("highContrast") === "true") {
     });
 }
 
-// Keyboard support untuk back to top
-backToTopBtn.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        scrollToTop();
-    }
-});
-
-// Back to Top Event Listeners
-backToTopBtn.addEventListener("click", scrollToTop);
-window.addEventListener("scroll", toggleBackToTop);
-window.addEventListener("resize", toggleBackToTop);
-
-// Initialize back to top
-document.addEventListener("DOMContentLoaded", toggleBackToTop);
-
-contrastToggle.addEventListener("click", toggleHighContrast);
-contrastToggleMobile.addEventListener("click", toggleHighContrast);
+if (contrastToggle) contrastToggle.addEventListener("click", toggleHighContrast);
+if (contrastToggleMobile) contrastToggleMobile.addEventListener("click", toggleHighContrast);
 
 // Mobile Menu
-mobileMenuToggle.addEventListener("click", () => {
-    const isExpanded = mobileMenu.style.maxHeight !== "0px" && mobileMenu.style.maxHeight !== "";
-    mobileMenu.style.maxHeight = isExpanded ? "0px" : mobileMenu.scrollHeight + "px";
-    mobileMenuToggle.setAttribute("aria-expanded", !isExpanded);
-    
-    // Update icon
-    const icon = mobileMenuToggle.querySelector("i");
-    icon.className = isExpanded ? "fas fa-bars text-2xl" : "fas fa-times text-2xl";
-});
+if (mobileMenuToggle) {
+    mobileMenuToggle.addEventListener("click", () => {
+        const isExpanded = mobileMenu.style.maxHeight !== "0px" && mobileMenu.style.maxHeight !== "";
+        mobileMenu.style.maxHeight = isExpanded ? "0px" : mobileMenu.scrollHeight + "px";
+        mobileMenuToggle.setAttribute("aria-expanded", !isExpanded);
 
-const mobileLinks = mobileMenu.querySelectorAll("a");
-mobileLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-        mobileMenu.style.maxHeight = "0px";
-        mobileMenuToggle.setAttribute("aria-expanded", "false");
+        // Update icon
         const icon = mobileMenuToggle.querySelector("i");
-        icon.className = "fas fa-bars text-2xl";
+        icon.className = isExpanded ? "fas fa-bars text-2xl" : "fas fa-times text-2xl";
     });
-});
+}
 
-// Audio Player with Transcript Highlighting
-const audio = new Audio("assets/audio/id.mp3");
-let isPlaying = false;
+if (mobileMenu) {
+    const mobileLinks = mobileMenu.querySelectorAll("a");
+    mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            mobileMenu.style.maxHeight = "0px";
+            mobileMenuToggle.setAttribute("aria-expanded", "false");
+            const icon = mobileMenuToggle.querySelector("i");
+            icon.className = "fas fa-bars text-2xl";
+        });
+    });
+}
 
+// Audio Functions dengan Sliding Highlight Effect
 function formatTime(seconds) {
     const mins = Math.floor(seconds / 60);
     const secs = Math.floor(seconds % 60);
@@ -140,46 +82,145 @@ function formatTime(seconds) {
 }
 
 audio.addEventListener("loadedmetadata", () => {
-    document.getElementById("totalTime").textContent = formatTime(audio.duration);
+    const totalTimeEl = document.getElementById("totalTime");
+    if (totalTimeEl) {
+        totalTimeEl.textContent = formatTime(audio.duration);
+    }
 });
 
 audio.addEventListener("timeupdate", () => {
     const progress = (audio.currentTime / audio.duration) * 100;
-    document.getElementById("audioProgress").style.width = progress + "%";
-    document.getElementById("currentTime").textContent = formatTime(audio.currentTime);
-    
-    // Highlight current transcript paragraph
-    highlightTranscript(audio.currentTime);
+    const audioProgressEl = document.getElementById("audioProgress");
+    const currentTimeEl = document.getElementById("currentTime");
+
+    if (audioProgressEl) {
+        audioProgressEl.style.width = progress + "%";
+    }
+    if (currentTimeEl) {
+        currentTimeEl.textContent = formatTime(audio.currentTime);
+    }
+
+    // Highlight current transcript paragraph dengan efek sliding
+    highlightTranscriptWithSlide(audio.currentTime);
 });
 
-function highlightTranscript(currentTime) {
+function highlightTranscriptWithSlide(currentTime) {
     const paragraphs = document.querySelectorAll("#transcript p");
+    if (paragraphs.length === 0) return;
+
+    let newHighlightIndex = -1;
+
+    // Cari paragraf yang seharusnya aktif
     paragraphs.forEach((para, index) => {
-        const startTime = index * 7; // Each paragraph gets ~7 seconds
-        const endTime = (index + 1) * 7;
-        
+        const [startTime, endTime] = transcriptTiming[index] || [index * 7, (index + 1) * 7];
+
         if (currentTime >= startTime && currentTime < endTime) {
-            para.classList.add("transcript-highlight");
-        } else {
-            para.classList.remove("transcript-highlight");
+            newHighlightIndex = index;
         }
     });
+
+    // Jika tidak ada perubahan, return
+    if (newHighlightIndex === currentHighlightIndex) return;
+
+    // Reset semua highlights
+    paragraphs.forEach((para, index) => {
+        para.classList.remove(
+            "transcript-highlight",
+            "transcript-highlight-previous",
+            "transcript-highlight-next"
+        );
+    });
+
+    // Apply efek bergeser berdasarkan arah
+    if (newHighlightIndex !== -1) {
+        const currentPara = paragraphs[newHighlightIndex];
+
+        // Highlight current paragraph
+        currentPara.classList.add("transcript-highlight");
+
+        // Previous paragraph effect (fade out)
+        if (currentHighlightIndex !== -1 && currentHighlightIndex < paragraphs.length) {
+            paragraphs[currentHighlightIndex].classList.add("transcript-highlight-previous");
+        }
+
+        // Next paragraph anticipation (jika bergerak maju)
+        if (newHighlightIndex > currentHighlightIndex && newHighlightIndex + 1 < paragraphs.length) {
+            paragraphs[newHighlightIndex + 1].classList.add("transcript-highlight-next");
+        }
+
+        // Auto scroll ke paragraf aktif
+        autoScrollToParagraph(currentPara, newHighlightIndex);
+    }
+
+    // Update state
+    previousHighlightIndex = currentHighlightIndex;
+    currentHighlightIndex = newHighlightIndex;
+}
+
+function autoScrollToParagraph(para, index) {
+    const transcriptContainer = document.getElementById("transcript");
+    if (!transcriptContainer) return;
+
+    const containerRect = transcriptContainer.getBoundingClientRect();
+    const paraRect = para.getBoundingClientRect();
+
+    // Cek apakah paragraf fully visible
+    const isFullyVisible = (
+        paraRect.top >= containerRect.top &&
+        paraRect.bottom <= containerRect.bottom
+    );
+
+    // Scroll hanya jika tidak fully visible
+    if (!isFullyVisible) {
+        const scrollOptions = {
+            behavior: "smooth",
+            block: "center"
+        };
+
+        // Untuk paragraf pertama, scroll ke top
+        if (index === 0) {
+            scrollOptions.block = "start";
+        }
+
+        para.scrollIntoView(scrollOptions);
+    }
 }
 
 audio.addEventListener("ended", () => {
     isPlaying = false;
     updatePlayButton(false);
-    document.getElementById("audioStatus").textContent = "Selesai diputar";
+    const audioStatus = document.getElementById("audioStatus");
+    if (audioStatus) audioStatus.textContent = "Selesai diputar";
     audio.currentTime = 0;
-    
-    // Remove all highlights
-    document.querySelectorAll("#transcript p").forEach(p => {
-        p.classList.remove("transcript-highlight");
+
+    // Reset semua highlights dengan efek fade out
+    const paragraphs = document.querySelectorAll("#transcript p");
+    paragraphs.forEach((para, index) => {
+        if (para.classList.contains("transcript-highlight")) {
+            para.classList.add("transcript-highlight-previous");
+            setTimeout(() => {
+                para.classList.remove(
+                    "transcript-highlight",
+                    "transcript-highlight-previous",
+                    "transcript-highlight-next"
+                );
+            }, 800);
+        } else {
+            para.classList.remove(
+                "transcript-highlight",
+                "transcript-highlight-previous",
+                "transcript-highlight-next"
+            );
+        }
     });
+
+    currentHighlightIndex = -1;
+    previousHighlightIndex = -1;
 });
 
 audio.addEventListener("error", () => {
-    document.getElementById("audioStatus").textContent = "Error: File audio tidak ditemukan";
+    const audioStatus = document.getElementById("audioStatus");
+    if (audioStatus) audioStatus.textContent = "Error: File audio tidak ditemukan";
     console.error("Audio file not found at assets/audio/id.mp3");
 });
 
@@ -188,22 +229,27 @@ function playScreenReaderSimulation() {
         audio.pause();
         isPlaying = false;
         updatePlayButton(false);
-        document.getElementById("audioStatus").textContent = "Dijeda";
+        const audioStatus = document.getElementById("audioStatus");
+        if (audioStatus) audioStatus.textContent = "Dijeda";
         return;
     }
 
     audio.play().then(() => {
         isPlaying = true;
         updatePlayButton(true);
-        document.getElementById("audioStatus").textContent = "Sedang diputar...";
+        const audioStatus = document.getElementById("audioStatus");
+        if (audioStatus) audioStatus.textContent = "Sedang diputar...";
     }).catch((err) => {
         console.error("Error playing audio:", err);
-        document.getElementById("audioStatus").textContent = "Gagal memutar audio";
+        const audioStatus = document.getElementById("audioStatus");
+        if (audioStatus) audioStatus.textContent = "Gagal memutar audio";
     });
 }
 
 function updatePlayButton(playing) {
     const playPauseBtn = document.getElementById("playPauseBtn");
+    if (!playPauseBtn) return;
+
     const icon = playPauseBtn.querySelector("i");
 
     if (playing) {
@@ -218,26 +264,53 @@ function updatePlayButton(playing) {
 }
 
 // Event Listeners for Audio
-document.getElementById("playPauseBtn").addEventListener("click", playScreenReaderSimulation);
-document.getElementById("heroScreenReaderBtn").addEventListener("click", () => {
-    document.getElementById("simulasi").scrollIntoView({ behavior: "smooth" });
-    setTimeout(playScreenReaderSimulation, 500);
-});
+const playPauseBtn = document.getElementById("playPauseBtn");
+if (playPauseBtn) {
+    playPauseBtn.addEventListener("click", playScreenReaderSimulation);
+}
 
-document.getElementById("stopBtn").addEventListener("click", () => {
-    audio.pause();
-    audio.currentTime = 0;
-    isPlaying = false;
-    updatePlayButton(false);
-    document.getElementById("audioStatus").textContent = "Dihentikan";
-    document.getElementById("audioProgress").style.width = "0%";
-    document.getElementById("currentTime").textContent = "0:00";
-    
-    // Remove all highlights
-    document.querySelectorAll("#transcript p").forEach(p => {
-        p.classList.remove("transcript-highlight");
+const heroScreenReaderBtn = document.getElementById("heroScreenReaderBtn");
+if (heroScreenReaderBtn) {
+    heroScreenReaderBtn.addEventListener("click", () => {
+        const simulasiSection = document.getElementById("simulasi");
+        if (simulasiSection) {
+            simulasiSection.scrollIntoView({ behavior: "smooth" });
+            setTimeout(playScreenReaderSimulation, 500);
+        }
     });
-});
+}
+
+const stopBtn = document.getElementById("stopBtn");
+if (stopBtn) {
+    stopBtn.addEventListener("click", () => {
+        audio.pause();
+        audio.currentTime = 0;
+        isPlaying = false;
+        updatePlayButton(false);
+
+        const audioStatus = document.getElementById("audioStatus");
+        if (audioStatus) audioStatus.textContent = "Dihentikan";
+
+        const audioProgress = document.getElementById("audioProgress");
+        if (audioProgress) audioProgress.style.width = "0%";
+
+        const currentTime = document.getElementById("currentTime");
+        if (currentTime) currentTime.textContent = "0:00";
+
+        // Remove all highlights
+        const paragraphs = document.querySelectorAll("#transcript p");
+        paragraphs.forEach((para, index) => {
+            para.classList.remove(
+                "transcript-highlight",
+                "transcript-highlight-previous",
+                "transcript-highlight-next"
+            );
+        });
+
+        currentHighlightIndex = -1;
+        previousHighlightIndex = -1;
+    });
+}
 
 // Keyboard Challenge
 const challengeCards = document.querySelectorAll(".challenge-card");
@@ -251,28 +324,34 @@ const mouseToggleText = document.getElementById("mouseToggleText");
 let visitedCards = new Set();
 let challengeActive = false;
 
-startChallengeBtn.addEventListener("click", () => {
-    challengeActive = true;
-    visitedCards.clear();
-    challengeStatus.classList.remove("hidden");
-    successMessage.classList.add("hidden");
-    challengeMessage.textContent = "Tekan Tab untuk memulai navigasi. Kunjungi semua 6 kartu!";
+if (startChallengeBtn) {
+    startChallengeBtn.addEventListener("click", () => {
+        challengeActive = true;
+        visitedCards.clear();
+        if (challengeStatus) challengeStatus.classList.remove("hidden");
+        if (successMessage) successMessage.classList.add("hidden");
+        if (challengeMessage) challengeMessage.textContent = "Tekan Tab untuk memulai navigasi. Kunjungi semua 6 kartu!";
 
-    challengeCards.forEach((card) => {
-        card.style.backgroundColor = "";
+        challengeCards.forEach((card) => {
+            card.style.backgroundColor = "";
+        });
+
+        // Focus first card
+        if (challengeCards.length > 0) {
+            challengeCards[0].focus();
+        }
     });
-    
-    // Focus first card
-    if (challengeCards.length > 0) {
-        challengeCards[0].focus();
-    }
-});
+}
 
-toggleMouseBtn.addEventListener("click", () => {
-    body.classList.toggle("no-mouse");
-    const isNoMouse = body.classList.contains("no-mouse");
-    mouseToggleText.textContent = isNoMouse ? "Tampilkan Kursor" : "Sembunyikan Kursor";
-});
+if (toggleMouseBtn) {
+    toggleMouseBtn.addEventListener("click", () => {
+        body.classList.toggle("no-mouse");
+        const isNoMouse = body.classList.contains("no-mouse");
+        if (mouseToggleText) {
+            mouseToggleText.textContent = isNoMouse ? "Tampilkan Kursor" : "Sembunyikan Kursor";
+        }
+    });
+}
 
 challengeCards.forEach((card) => {
     card.addEventListener("focus", () => {
@@ -282,11 +361,11 @@ challengeCards.forEach((card) => {
                 visitedCards.add(cardNum);
                 card.style.backgroundColor = "#d1fae5";
 
-                challengeMessage.textContent = `Kartu ${visitedCards.size} dari 6 dikunjungi. Terus navigasi dengan Tab!`;
+                if (challengeMessage) challengeMessage.textContent = `Kartu ${visitedCards.size} dari 6 dikunjungi. Terus navigasi dengan Tab!`;
 
                 if (visitedCards.size === 6) {
-                    successMessage.classList.remove("hidden");
-                    challengeMessage.textContent = "Sempurna! Anda berhasil menavigasi semua kartu!";
+                    if (successMessage) successMessage.classList.remove("hidden");
+                    if (challengeMessage) challengeMessage.textContent = "Sempurna! Anda berhasil menavigasi semua kartu!";
                     challengeActive = false;
                 }
             }
@@ -319,11 +398,11 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 function checkResponsiveIssues() {
     const issues = [];
     const viewportWidth = window.innerWidth;
-    
+
     if (viewportWidth < 390) {
         issues.push('Mobile: Viewport kurang dari 390px');
     }
-    
+
     // Check touch targets
     const buttons = document.querySelectorAll('button, a[href]');
     buttons.forEach(btn => {
@@ -332,7 +411,7 @@ function checkResponsiveIssues() {
             issues.push(`Touch target terlalu kecil: ${btn.textContent.trim() || btn.getAttribute('aria-label')}`);
         }
     });
-    
+
     if (issues.length > 0 && window.location.hostname === 'localhost') {
         console.warn('Responsive Issues:', issues);
     }

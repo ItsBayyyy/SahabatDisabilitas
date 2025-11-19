@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tentang SahabatDisabilitas - Tim Celestia Productions yang berdedikasi untuk menciptakan web yang inklusif untuk semua">
+    <title>Tentang Kami - SahabatDisabilitas</title>
+    <link rel="icon" type="image/x-icon" href="assets/logo/logo_1.png">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-900">
+    <!-- NAVIGATION -->
+    <nav class="bg-white shadow-sm sticky top-0 z-40" role="navigation" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-2 focus-visible" aria-label="SahabatDisabilitas Home">
+                        <img src="assets/logo/logo_2.png" alt="SahabatDisabilitas Logo - Tangan membantu simbol aksesibilitas" class="w-10">
+                        <span class="hidden lg:block text-xl font-bold text-gray-900">SahabatDisabilitas</span>
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 focus-visible transition font-medium">Beranda</a>
+                    <a href="artikel.html" class="text-gray-700 hover:text-blue-600 focus-visible transition font-medium">Artikel</a>
+                    <a href="about.html" class="text-blue-600 hover:text-blue-600 focus-visible transition font-medium">Tentang Kami</a>
+
+                    <button
+                        id="contrastToggle"
+                        class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 focus-visible transition flex items-center space-x-2 font-medium"
+                        aria-label="Toggle high contrast mode"
+                        aria-pressed="false">
+                        <i class="fas fa-adjust" aria-hidden="true"></i>
+                        <span>Kontras Tinggi</span>
+                    </button>
+                </div>
+
+                <button
+                    id="mobileMenuToggle"
+                    class="md:hidden text-gray-700 focus-visible p-2"
+                    aria-label="Toggle mobile menu"
+                    aria-expanded="false"
+                    aria-controls="mobileMenu">
+                    <i class="fas fa-bars text-2xl" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <!-- MOBILE MENU -->
+            <div id="mobileMenu" class="md:hidden max-h-0 bg-white shadow-lg" style="max-height: 0;">
+                <div class="px-2 pt-2 pb-4 space-y-3">
+                    <a href="index.html" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded focus-visible font-medium">Beranda</a>
+                    <a href="artikel.html" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded focus-visible font-medium">Artikel</a>
+                    <a href="about.html" class="block px-3 py-2 text-blue-600 hover:bg-gray-100 rounded focus-visible font-medium">Tentang Kami</a>
+                    
+                    <div class="border-t pt-3">
+                        <button
+                            id="contrastToggleMobile"
+                            class="w-full text-left px-3 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 focus-visible flex items-center space-x-2 font-medium"
+                            aria-label="Toggle high contrast mode">
+                            <i class="fas fa-adjust" aria-hidden="true"></i>
+                            <span>Kontras Tinggi</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <!-- HERO SECTION -->
+        <section class="relative bg-gradient-to-br from-blue-50 to-orange-50 py-20 md:py-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center" data-aos="fade-up" data-aos-duration="800">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6" data-aos="fade-up" data-aos-delay="100">
+                        Tentang <span class="text-blue-600">SahabatDisabilitas</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                        Platform edukasi interaktif yang didedikasikan untuk menciptakan internet yang lebih inklusif dan accessible bagi semua orang
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISI SECTION -->
+        <section class="py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-eye text-4xl text-blue-600" aria-hidden="true"></i>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Visi Kami</h2>
+                    <p class="text-2xl md:text-3xl font-semibold text-blue-600 mb-4">
+                        "Web yang Benar-Benar untuk Semua Orang"
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Kami percaya bahwa internet adalah hak universal yang harus dapat diakses oleh siapa saja, 
+                        tanpa memandang kemampuan fisik atau kognitif mereka. Aksesibilitas bukan hanya tentang 
+                        kepatuhan standar, tetapi tentang empati dan inklusi sejati.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MISI SECTION -->
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-bullseye text-4xl text-orange-500" aria-hidden="true"></i>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Misi Kami</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        Tiga pilar utama yang memandu setiap langkah kami dalam menciptakan web yang lebih inklusif
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Misi 1 -->
+                    <div class="card-hover bg-white p-8 rounded-xl shadow-md text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-graduation-cap text-3xl text-blue-600" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Edukasi Melalui Pengalaman</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Menyediakan simulasi interaktif yang memungkinkan developer dan desainer untuk 
+                            <strong>merasakan langsung</strong> tantangan yang dihadapi pengguna dengan disabilitas, 
+                            sehingga terbangun empati dan pemahaman yang mendalam.
+                        </p>
+                    </div>
+
+                    <!-- Misi 2 -->
+                    <div class="card-hover bg-white p-8 rounded-xl shadow-md text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-code text-3xl text-orange-500" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Panduan Praktis & Actionable</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Memberikan <strong>solusi konkret dan implementable</strong> berdasarkan standar WCAG 
+                            yang terbukti meningkatkan aksesibilitas, dengan fokus pada best practices yang 
+                            mudah diterapkan dalam development process.
+                        </p>
+                    </div>
+
+                    <!-- Misi 3 -->
+                    <div class="card-hover bg-white p-8 rounded-xl shadow-md text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-users text-3xl text-blue-600" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Membangun Komunitas Inklusif</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Menciptakan <strong>movement</strong> di kalangan tech community Indonesia untuk 
+                            menjadikan aksesibilitas sebagai standar, bukan afterthought, dalam setiap 
+                            project digital yang dikembangkan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TIM SECTION -->
+        <section class="py-16 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Tim Celestia Productions</h2>
+                    <p class="text-lg text-gray-600">
+                        Kami adalah sekelompok mahasiswa yang passionate tentang teknologi dan inklusi sosial
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                    <!-- Team Member 1 -->
+                    <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl text-center border-2 border-blue-200" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-user text-3xl text-white" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-1">Bayu Ardana</h3>
+                        <p class="text-blue-600 font-semibold mb-2">Project Lead</p>
+                        <p class="text-sm text-gray-600">
+                            Mengarahkan visi project dan koordinasi tim
+                        </p>
+                    </div>
+
+                    <!-- Team Member 2 -->
+                    <div class="card-hover bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-xl text-center border-2 border-orange-200" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="w-20 h-20 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-user text-3xl text-white" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-1">Mainaka Lukas</h3>
+                        <p class="text-orange-600 font-semibold mb-2">UI/UX Designer</p>
+                        <p class="text-sm text-gray-600">
+                            Merancang interface yang inklusif dan user-friendly
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CERITA SINGKAT -->
+        <section class="py-16 bg-gradient-to-br from-blue-600 to-blue-800">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-white" data-aos="fade-up">
+                    <div class="text-center mb-8">
+                        <i class="fas fa-book-open text-5xl mb-6" aria-hidden="true"></i>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6">Cerita Kami</h2>
+                    </div>
+                    
+                    <div class="space-y-6 text-lg leading-relaxed">
+                        <p class="text-blue-100">
+                            Proyek <strong>SahabatDisabilitas</strong> lahir dari pengamatan sederhana namun mengejutkan: 
+                            hampir 15% populasi dunia hidup dengan berbagai bentuk disabilitas, namun sebagian besar 
+                            website masih tidak dirancang dengan mempertimbangkan kebutuhan mereka.
+                        </p>
+                        
+                        <p class="text-blue-100">
+                            Sebagai mahasiswa yang tertarik dengan web development, kami menyadari bahwa banyak 
+                            developer, termasuk kami sendiri, tidak memiliki <strong>pengalaman langsung</strong> 
+                            dengan tantangan aksesibilitas. Kami belajar tentang WCAG dan best practices, tetapi 
+                            sulit untuk benar-benar <em>memahami</em> dampaknya tanpa merasakan sendiri.
+                        </p>
+                        
+                        <p class="text-blue-100">
+                            Maka terciptalah platform ini—sebuah <strong>learning experience</strong> yang memungkinkan 
+                            siapa saja untuk berjalan di sepatu pengguna dengan disabilitas. Dengan simulasi interaktif 
+                            untuk screen reader, keyboard navigation, dan high contrast mode, kami berharap dapat 
+                            membangun empati sambil mengajarkan skill praktis.
+                        </p>
+                        
+                        <div class="bg-white bg-opacity-10 rounded-lg p-6 border-l-4 border-orange-400 mt-8">
+                            <p class="text-white font-semibold text-xl mb-2">
+                                <i class="fas fa-quote-left mr-2" aria-hidden="true"></i>
+                                "Aksesibilitas bukan tentang kepatuhan—ini tentang kemanusiaan"
+                            </p>
+                            <p class="text-blue-200 text-sm">
+                                — Filosofi Tim Celestia Productions
+                            </p>
+                        </div>
+
+                        <p class="text-blue-100 mt-6">
+                            Kami percaya bahwa setiap developer memiliki tanggung jawab untuk menciptakan web yang 
+                            lebih inklusif. Project ini adalah kontribusi kecil kami untuk <strong>Indonesia yang 
+                            lebih accessible</strong>, satu website pada satu waktu.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS SECTION -->
+        <section class="py-16 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Impact Kami</h2>
+                    <p class="text-lg text-gray-600">Angka-angka yang mendorong kami terus berinovasi</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center p-8 bg-blue-50 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-globe text-5xl text-blue-600 mb-4" aria-hidden="true"></i>
+                        <h3 class="text-4xl font-bold text-gray-900 mb-2">1 Miliar+</h3>
+                        <p class="text-gray-600">Orang dengan disabilitas di dunia yang membutuhkan web accessible</p>
+                    </div>
+
+                    <div class="text-center p-8 bg-orange-50 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-chart-line text-5xl text-orange-500 mb-4" aria-hidden="true"></i>
+                        <h3 class="text-4xl font-bold text-gray-900 mb-2">98%</h3>
+                        <p class="text-gray-600">Website masih memiliki masalah aksesibilitas yang dapat dideteksi</p>
+                    </div>
+
+                    <div class="text-center p-8 bg-blue-50 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-heart text-5xl text-blue-600 mb-4" aria-hidden="true"></i>
+                        <h3 class="text-4xl font-bold text-gray-900 mb-2">100%</h3>
+                        <p class="text-gray-600">Komitmen kami untuk menciptakan web yang benar-benar untuk semua</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="py-20 bg-gradient-to-br from-orange-500 to-orange-600">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                    Bergabunglah dengan Kami
+                </h2>
+                <p class="text-xl mb-8 text-orange-100">
+                    Mari bersama-sama menciptakan internet yang lebih inklusif untuk semua orang
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="index.html#simulasi"
+                       class="px-8 py-4 bg-white text-orange-600 rounded-lg font-semibold hover:bg-orange-50 focus-visible transition shadow-lg flex items-center justify-center">
+                        <i class="fas fa-play-circle mr-2" aria-hidden="true"></i>
+                        Coba Simulasi
+                    </a>
+                    <a href="artikel.html"
+                       class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-orange-600 focus-visible transition flex items-center justify-center">
+                        <i class="fas fa-newspaper mr-2" aria-hidden="true"></i>
+                        Baca Artikel
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="assets/logo/logo_2.png" alt="SahabatDisabilitas Logo" class="w-10">
+                        <span class="text-xl font-bold">SahabatDisabilitas</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Platform edukasi untuk menciptakan web yang inklusif dan accessible untuk semua.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Navigasi Cepat</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white focus-visible transition">Beranda</a></li>
+                        <li><a href="artikel.html" class="text-gray-400 hover:text-white focus-visible transition">Artikel</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white focus-visible transition">Tentang Kami</a></li>
+                        <li><a href="index.html#simulasi" class="text-gray-400 hover:text-white focus-visible transition">Simulasi</a></li>
+                        <li><a href="index.html#fitur" class="text-gray-400 hover:text-white focus-visible transition">Fitur</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Hubungi Kami</h3>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-white focus-visible transition" aria-label="Facebook">
+                            <i class="fab fa-facebook text-2xl" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white focus-visible transition" aria-label="Twitter">
+                            <i class="fab fa-twitter text-2xl" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white focus-visible transition" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin text-2xl" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white focus-visible transition" aria-label="Instagram">
+                            <i class="fab fa-instagram text-2xl" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400">
+                        <i class="fas fa-envelope mr-2" aria-hidden="true"></i>
+                        info@sahabatdisabilitas.com
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400">
+                    &copy; 2025 SahabatDisabilitas. #Didesain dengan Empati. Diakses oleh Semua.
+                </p>
+                <p class="text-gray-500 text-sm mt-2">
+                    <a href="#" class="hover:text-white focus-visible transition">Pernyataan Aksesibilitas</a> |
+                    <a href="#" class="hover:text-white focus-visible transition">Kebijakan Privasi</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a 
+        href="https://wa.me/6281234567890?text=Halo%20SahabatDisabilitas,%20saya%20ingin%20konsultasi%20tentang%20aksesibilitas%20web" 
+        target="_blank"
+        rel="noopener noreferrer"
+        class="fixed bottom-8 right-8 w-14 h-14 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-green-300 transition-all duration-300 flex items-center justify-center z-50 whatsapp-float"
+        aria-label="Konsultasi via WhatsApp"
+        title="Konsultasi Gratis">
+        <i class="fab fa-whatsapp text-2xl" aria-hidden="true"></i>
+        <span class="whatsapp-tooltip absolute bottom-full mb-2 right-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-sm py-2 px-4 rounded whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-300">
+            Konsultasi Gratis
+        </span>
+    </a>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/aos.js"></script>
+</body>
+</html>

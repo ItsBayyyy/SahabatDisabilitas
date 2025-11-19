@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Artikel tentang aksesibilitas web untuk berbagai jenis disabilitas - Tunanetra, Low Vision, Disabilitas Motorik, dan Disabilitas Kognitif">
+    <title>Artikel Aksesibilitas Web - SahabatDisabilitas</title>
+    <link rel="icon" type="image/x-icon" href="assets/logo/logo_1.png">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-900">
+    <!-- NAVIGATION -->
+    <nav class="bg-white shadow-sm sticky top-0 z-40" role="navigation" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-2 focus-visible" aria-label="SahabatDisabilitas Home">
+                        <img src="assets/logo/logo_2.png" alt="SahabatDisabilitas Logo - Tangan membantu simbol aksesibilitas" class="w-10">
+                        <span class="hidden lg:block text-xl font-bold text-gray-900">SahabatDisabilitas</span>
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 focus-visible transition font-medium">Beranda</a>
+                    <a href="artikel.html" class="text-blue-600 hover:text-blue-600 focus-visible transition font-medium">Artikel</a>
+                    <a href="about.html" class="text-gray-700 hover:text-blue-600 focus-visible transition font-medium">Tentang Kami</a>
+
+                    <button
+                        id="contrastToggle"
+                        class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 focus-visible transition flex items-center space-x-2 font-medium"
+                        aria-label="Toggle high contrast mode"
+                        aria-pressed="false">
+                        <i class="fas fa-adjust" aria-hidden="true"></i>
+                        <span>Kontras Tinggi</span>
+                    </button>
+                </div>
+
+                <button
+                    id="mobileMenuToggle"
+                    class="md:hidden text-gray-700 focus-visible p-2"
+                    aria-label="Toggle mobile menu"
+                    aria-expanded="false"
+                    aria-controls="mobileMenu">
+                    <i class="fas fa-bars text-2xl" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <!-- MOBILE MENU -->
+            <div id="mobileMenu" class="md:hidden max-h-0 bg-white shadow-lg" style="max-height: 0;">
+                <div class="px-2 pt-2 pb-4 space-y-3">
+                    <a href="index.html" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded focus-visible font-medium">Beranda</a>
+                    <a href="artikel.html" class="block px-3 py-2 text-blue-600 hover:bg-gray-100 rounded focus-visible font-medium">Artikel</a>
+                    <a href="about.html" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded focus-visible font-medium">Tentang Kami</a>
+                    
+                    <div class="border-t pt-3">
+                        <button
+                            id="contrastToggleMobile"
+                            class="w-full text-left px-3 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 focus-visible flex items-center space-x-2 font-medium"
+                            aria-label="Toggle high contrast mode">
+                            <i class="fas fa-adjust" aria-hidden="true"></i>
+                            <span>Kontras Tinggi</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <!-- HERO SECTION -->
+        <section class="relative bg-gradient-to-br from-blue-50 to-orange-50 py-20 md:py-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center" data-aos="fade-up" data-aos-duration="800">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6" data-aos="fade-up" data-aos-delay="100">
+                        Artikel <span class="text-blue-600">Aksesibilitas Web</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                        Pelajari bagaimana menciptakan pengalaman web yang inklusif untuk semua pengguna dengan berbagai jenis disabilitas
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARTIKEL GRID -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- ARTIKEL 1: TUNANETRA -->
+                    <article class="card-hover bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200" data-aos="fade-up" data-aos-delay="100">
+                        <div class="bg-gradient-to-br from-blue-500 to-blue-600 p-8 text-white">
+                            <div class="w-16 h-16 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-headphones text-3xl" aria-hidden="true"></i>
+                            </div>
+                            <h2 class="text-2xl font-bold mb-2">Screen Reader & Navigasi Audio</h2>
+                            <p class="text-blue-100">Untuk Pengguna Tunanetra</p>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Apa itu Screen Reader?</h3>
+                            <p class="text-gray-600 mb-4 leading-relaxed">
+                                Screen reader adalah teknologi assistive yang membaca konten digital secara audio. Ini adalah "mata digital" bagi pengguna tunanetra untuk mengakses website.
+                            </p>
+                            
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Tantangan yang Dihadapi:</h3>
+                            <ul class="space-y-2 mb-4">
+                                <li class="flex items-start">
+                                    <i class="fas fa-times-circle text-red-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Gambar tanpa alt text tidak terbaca</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-times-circle text-red-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Struktur heading yang buruk membingungkan navigasi</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-times-circle text-red-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Link dengan teks "klik disini" tidak informatif</span>
+                                </li>
+                            </ul>
+
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Solusi Praktis:</h3>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Tambahkan alt text deskriptif untuk semua gambar</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Gunakan heading hierarki (H1, H2, H3) yang benar</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Buat link dengan teks yang jelas dan deskriptif</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Gunakan ARIA labels untuk konteks tambahan</span>
+                                </li>
+                            </ul>
+
+                            <div class="bg-blue-50 border-l-4 border-blue-600 p-4 rounded">
+                                <p class="text-sm text-gray-700">
+                                    <i class="fas fa-lightbulb text-blue-600 mr-2" aria-hidden="true"></i>
+                                    <strong>Tips Developer:</strong> Uji website Anda dengan screen reader seperti NVDA (Windows) atau VoiceOver (Mac/iOS)
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ARTIKEL 2: LOW VISION -->
+                    <article class="card-hover bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200" data-aos="fade-up" data-aos-delay="200">
+                        <div class="bg-gradient-to-br from-green-500 to-green-600 p-8 text-white">
+                            <div class="w-16 h-16 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-eye text-3xl" aria-hidden="true"></i>
+                            </div>
+                            <h2 class="text-2xl font-bold mb-2">High Contrast Mode & Kontras Warna</h2>
+                            <p class="text-green-100">Untuk Pengguna Low Vision</p>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Apa itu Low Vision?</h3>
+                            <p class="text-gray-600 mb-4 leading-relaxed">
+                                Low vision mencakup berbagai kondisi seperti penglihatan kabur, buta warna, atau sensitivitas terhadap cahaya. Kontras yang baik sangat penting untuk keterbacaan.
+                            </p>
+                            
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Tantangan yang Dihadapi:</h3>
+                            <ul class="space-y-2 mb-4">
+                                <li class="flex items-start">
+                                    <i class="fas fa-times-circle text-red-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Teks abu-abu pada latar putih sulit dibaca</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-times-circle text-red-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Informasi hanya menggunakan warna (merah/hijau)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-times-circle text-red-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Font terlalu kecil tanpa opsi zoom</span>
+                                </li>
+                            </ul>
+
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Solusi Praktis:</h3>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Rasio kontras minimal 4.5:1 (WCAG Level AA)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Untuk Level AAA, gunakan rasio 7:1 atau lebih</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Jangan hanya andalkan warna untuk informasi</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Sediakan mode high contrast untuk pengguna</span>
+                                </li>
+                            </ul>
+
+                            <div class="bg-green-50 border-l-4 border-green-600 p-4 rounded">
+                                <p class="text-sm text-gray-700">
+                                    <i class="fas fa-lightbulb text-green-600 mr-2" aria-hidden="true"></i>
+                                    <strong>Tips Developer:</strong> Gunakan tools seperti WebAIM Contrast Checker untuk memverifikasi rasio kontras warna Anda
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ARTIKEL 3: DISABILITAS MOTORIK -->
+                    <article class="card-hover bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200" data-aos="fade-up" data-aos-delay="300">
+                        <div class="bg-gradient-to-br from-orange-500 to-orange-600 p-8 text-white">
+                            <div class="w-16 h-16 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-keyboard text-3xl" aria-hidden="true"></i>
+                            </div>
+                            <h2 class="text-2xl font-bold mb-2">Keyboard Navigation</h2>
+                            <p class="text-orange-100">Untuk Disabilitas Motorik</p>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Apa itu Disabilitas Motorik?</h3>
+                            <p class="text-gray-600 mb-4 leading-relaxed">
+                                Disabilitas motorik mencakup berbagai kondisi yang membatasi kemampuan menggunakan mouse atau trackpad, sehingga keyboard menjadi alat navigasi utama.
+                            </p>
+                            
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Tantangan yang Dihadapi:</h3>
+                            <ul class="space-y-2 mb-4">
+                                <li class="flex items-start">
+                                    <i class="fas fa-times-circle text-red-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Elemen interaktif tidak bisa diakses dengan Tab</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-times-circle text-red-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Tidak ada indikator focus yang jelas</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-times-circle text-red-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Dropdown atau modal yang hanya bisa diklik mouse</span>
+                                </li>
+                            </ul>
+
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Solusi Praktis:</h3>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Semua elemen interaktif harus bisa di-Tab</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Tambahkan focus indicator yang jelas (outline)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Gunakan tabindex untuk urutan navigasi logis</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Support shortcut keyboard untuk fungsi penting</span>
+                                </li>
+                            </ul>
+
+                            <div class="bg-orange-50 border-l-4 border-orange-600 p-4 rounded">
+                                <p class="text-sm text-gray-700">
+                                    <i class="fas fa-lightbulb text-orange-600 mr-2" aria-hidden="true"></i>
+                                    <strong>Tips Developer:</strong> Coba navigasi website Anda hanya dengan keyboard (Tab, Shift+Tab, Enter, Space)
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ARTIKEL 4: DISABILITAS KOGNITIF -->
+                    <article class="card-hover bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200" data-aos="fade-up" data-aos-delay="400">
+                        <div class="bg-gradient-to-br from-purple-500 to-purple-600 p-8 text-white">
+                            <div class="w-16 h-16 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-brain text-3xl" aria-hidden="true"></i>
+                            </div>
+                            <h2 class="text-2xl font-bold mb-2">Struktur Konten yang Jelas</h2>
+                            <p class="text-purple-100">Untuk Disabilitas Kognitif</p>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Apa itu Disabilitas Kognitif?</h3>
+                            <p class="text-gray-600 mb-4 leading-relaxed">
+                                Disabilitas kognitif meliputi kondisi seperti disleksia, ADHD, atau kesulitan memori. Konten yang terstruktur dan konsisten sangat membantu pemahaman.
+                            </p>
+                            
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Tantangan yang Dihadapi:</h3>
+                            <ul class="space-y-2 mb-4">
+                                <li class="flex items-start">
+                                    <i class="fas fa-times-circle text-red-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Layout yang kompleks dan membingungkan</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-times-circle text-red-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Terlalu banyak informasi di satu halaman</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-times-circle text-red-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Bahasa teknis tanpa penjelasan sederhana</span>
+                                </li>
+                            </ul>
+
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Solusi Praktis:</h3>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Gunakan bahasa yang sederhana dan jelas</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Pecah konten panjang menjadi paragraf pendek</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Gunakan bullet points dan heading untuk struktur</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Konsisten dalam navigasi dan design pattern</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2" aria-hidden="true"></i>
+                                    <span class="text-gray-600">Tambahkan visual (ikon, gambar) untuk mendukung teks</span>
+                                </li>
+                            </ul>
+
+                            <div class="bg-purple-50 border-l-4 border-purple-600 p-4 rounded">
+                                <p class="text-sm text-gray-700">
+                                    <i class="fas fa-lightbulb text-purple-600 mr-2" aria-hidden="true"></i>
+                                    <strong>Tips Developer:</strong> Gunakan readability tools untuk memastikan konten mudah dipahami (target: Grade 8 reading level)
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- CTA SECTION -->
+                <div class="mt-16 text-center" data-aos="fade-up">
+                    <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl shadow-xl p-8 md:p-12 text-white">
+                        <h2 class="text-3xl font-bold mb-4">Siap Mempraktikkan?</h2>
+                        <p class="text-blue-100 mb-8 max-w-2xl mx-auto">
+                            Coba simulasi interaktif kami untuk merasakan langsung pengalaman pengguna dengan disabilitas
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="index.html#simulasi" class="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 focus-visible transition shadow-lg flex items-center justify-center">
+                                <i class="fas fa-play-circle mr-2" aria-hidden="true"></i>
+                                Coba Simulasi
+                            </a>
+                            <a href="index.html#fitur" class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-600 focus-visible transition flex items-center justify-center">
+                                <i class="fas fa-cogs mr-2" aria-hidden="true"></i>
+                                Lihat Fitur Lainnya
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="assets/logo/logo_2.png" alt="SahabatDisabilitas Logo" class="w-10">
+                        <span class="text-xl font-bold">SahabatDisabilitas</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Platform edukasi untuk menciptakan web yang inklusif dan accessible untuk semua.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Navigasi Cepat</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white focus-visible transition">Beranda</a></li>
+                        <li><a href="artikel.html" class="text-gray-400 hover:text-white focus-visible transition">Artikel</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white focus-visible transition">Tentang Kami</a></li>
+                        <li><a href="index.html#simulasi" class="text-gray-400 hover:text-white focus-visible transition">Simulasi</a></li>
+                        <li><a href="index.html#fitur" class="text-gray-400 hover:text-white focus-visible transition">Fitur</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Hubungi Kami</h3>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-white focus-visible transition" aria-label="Facebook">
+                            <i class="fab fa-facebook text-2xl" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white focus-visible transition" aria-label="Twitter">
+                            <i class="fab fa-twitter text-2xl" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white focus-visible transition" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin text-2xl" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white focus-visible transition" aria-label="Instagram">
+                            <i class="fab fa-instagram text-2xl" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400">
+                        <i class="fas fa-envelope mr-2" aria-hidden="true"></i>
+                        info@sahabatdisabilitas.com
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400">
+                    &copy; 2025 SahabatDisabilitas. #Didesain dengan Empati. Diakses oleh Semua.
+                </p>
+                <p class="text-gray-500 text-sm mt-2">
+                    <a href="#" class="hover:text-white focus-visible transition">Pernyataan Aksesibilitas</a> |
+                    <a href="#" class="hover:text-white focus-visible transition">Kebijakan Privasi</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a 
+        href="https://wa.me/6281234567890?text=Halo%20SahabatDisabilitas,%20saya%20ingin%20konsultasi%20tentang%20aksesibilitas%20web" 
+        target="_blank"
+        rel="noopener noreferrer"
+        class="fixed bottom-8 right-8 w-14 h-14 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-green-300 transition-all duration-300 flex items-center justify-center z-50 whatsapp-float"
+        aria-label="Konsultasi via WhatsApp"
+        title="Konsultasi Gratis">
+        <i class="fab fa-whatsapp text-2xl" aria-hidden="true"></i>
+        <span class="whatsapp-tooltip absolute bottom-full mb-2 right-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-sm py-2 px-4 rounded whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-300">
+            Konsultasi Gratis
+        </span>
+    </a>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/aos.js"></script>
+</body>
+</html>
