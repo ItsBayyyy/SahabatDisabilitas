@@ -11,31 +11,27 @@
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 <body class="bg-white text-gray-900">
-
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded">
-        Skip to main content
-    </a>
-
+    <!-- IMPROVED NAVIGATION -->
     <nav class="bg-white shadow-sm sticky top-0 z-40" role="navigation" aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
                     <a href="#" class="flex items-center space-x-2 focus-visible" aria-label="SahabatDisabilitas Home">
-                        <!-- <i class="fas fa-universal-access text-2xl text-blue-600" aria-hidden="true"></i> -->
-                        <img src="assets/logo/logo_2.png" alt="Logo" class="w-10">
-                        <span class="text-xl font-bold text-gray-900">SahabatDisabilitas</span>
+                        <img src="assets/logo/logo_2.png" alt="SahabatDisabilitas Logo - Tangan membantu simbol aksesibilitas" class="w-10">
+                        <span class="hidden lg:block text-xl font-bold text-gray-900">SahabatDisabilitas</span>
                     </a>
                 </div>
 
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#beranda" class="text-gray-700 hover:text-blue-600 focus-visible transition">Beranda</a>
-                    <a href="#fitur" class="text-gray-700 hover:text-blue-600 focus-visible transition">Fitur</a>
-                    <a href="#simulasi" class="text-gray-700 hover:text-blue-600 focus-visible transition">Simulasi</a>
-                    <a href="#tentang" class="text-gray-700 hover:text-blue-600 focus-visible transition">Tentang</a>
+                    <a href="#beranda" class="text-gray-700 hover:text-blue-600 focus-visible transition font-medium">Beranda</a>
+                    <a href="#disability-impact" class="text-gray-700 hover:text-blue-600 focus-visible transition font-medium">Dampak</a>
+                    <a href="#simulasi" class="text-gray-700 hover:text-blue-600 focus-visible transition font-medium">Simulasi</a>
+                    <a href="#fitur" class="text-gray-700 hover:text-blue-600 focus-visible transition font-medium">Fitur</a>
+                    <a href="#tentang" class="text-gray-700 hover:text-blue-600 focus-visible transition font-medium">Tentang</a>
 
                     <button
                         id="contrastToggle"
-                        class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 focus-visible transition flex items-center space-x-2"
+                        class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 focus-visible transition flex items-center space-x-2 font-medium"
                         aria-label="Toggle high contrast mode"
                         aria-pressed="false">
                         <i class="fas fa-adjust" aria-hidden="true"></i>
@@ -53,45 +49,35 @@
                 </button>
             </div>
 
-            <div id="mobileMenu" class="md:hidden max-h-0" style="max-height: 0;">
+            <!-- IMPROVED MOBILE MENU -->
+            <div id="mobileMenu" class="md:hidden max-h-0 bg-white shadow-lg" style="max-height: 0;">
                 <div class="px-2 pt-2 pb-4 space-y-3">
-                    <a href="#beranda" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded focus-visible">Beranda</a>
-                    <a href="#fitur" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded focus-visible">Fitur</a>
-                    <a href="#simulasi" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded focus-visible">Simulasi</a>
-                    <a href="#tentang" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded focus-visible">Tentang</a>
-                    <div class="px-3 py-2 flex space-x-2">
+                    <a href="#beranda" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded focus-visible font-medium">Beranda</a>
+                    <a href="#disability-impact" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded focus-visible font-medium">Dampak</a>
+                    <a href="#simulasi" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded focus-visible font-medium">Simulasi</a>
+                    <a href="#fitur" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded focus-visible font-medium">Fitur</a>
+                    <a href="#tentang" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded focus-visible font-medium">Tentang</a>
+                    
+                    <div class="border-t pt-3">
                         <button
-                            id="langBtnMobile-id"
-                            class="flex-1 px-3 py-2 rounded font-semibold text-white bg-blue-600 hover:bg-blue-700 focus-visible transition"
-                            aria-label="Switch to Indonesian"
-                            data-lang="id">
-                            ID
-                        </button>
-                        <button
-                            id="langBtnMobile-en"
-                            class="flex-1 px-3 py-2 rounded font-semibold text-gray-700 hover:bg-gray-100 focus-visible transition"
-                            aria-label="Switch to English"
-                            data-lang="en">
-                            EN
+                            id="contrastToggleMobile"
+                            class="w-full text-left px-3 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 focus-visible flex items-center space-x-2 font-medium"
+                            aria-label="Toggle high contrast mode">
+                            <i class="fas fa-adjust" aria-hidden="true"></i>
+                            <span>Kontras Tinggi</span>
                         </button>
                     </div>
-                    <button
-                        id="contrastToggleMobile"
-                        class="w-full text-left px-3 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 focus-visible flex items-center space-x-2"
-                        aria-label="Toggle high contrast mode">
-                        <i class="fas fa-adjust" aria-hidden="true"></i>
-                        <span>Kontras Tinggi</span>
-                    </button>
                 </div>
             </div>
         </div>
     </nav>
 
     <main id="main-content">
+        <!-- HERO SECTION -->
         <section id="beranda" class="relative bg-gradient-to-br from-blue-50 to-orange-50 py-20 md:py-32">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center" data-aos="fade-up" data-aos-duration="800">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 hero-title" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
                         Web untuk <span class="text-blue-600">Semua Orang</span>
                     </h1>
                     <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
@@ -100,13 +86,13 @@
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
-                        <a href="#tentang"
-                           class="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 focus-visible transition shadow-lg">
+                        <a href="#disability-impact"
+                           class="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 focus-visible transition shadow-lg flex items-center">
                             <i class="fas fa-graduation-cap mr-2" aria-hidden="true"></i>
                             Mulai Belajar
                         </a>
                         <a href="#simulasi"
-                           class="px-8 py-4 bg-white text-blue-600 border-2 border-blue-600 rounded-lg font-semibold hover:bg-blue-50 focus-visible transition" >
+                           class="px-8 py-4 bg-white text-blue-600 border-2 border-blue-600 rounded-lg font-semibold hover:bg-blue-50 focus-visible transition flex items-center">
                             <i class="fas fa-play-circle mr-2" aria-hidden="true"></i>
                             Coba Simulasi
                         </a>
@@ -114,25 +100,26 @@
 
                     <button
                         id="heroScreenReaderBtn"
-                        class="inline-flex items-center space-x-2 text-gray-700 hover:text-blue-600 focus-visible transition"
+                        class="inline-flex items-center space-x-2 text-gray-700 hover:text-blue-600 focus-visible transition font-medium"
                         aria-label="Play screen reader simulation" data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">
                         <i class="fas fa-volume-up text-2xl" aria-hidden="true"></i>
-                        <span class="font-medium">Dengarkan Simulasi Screen Reader</span>
+                        <span>Dengarkan Simulasi Screen Reader</span>
                     </button>
                 </div>
 
-                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                    <div class="text-center p-6 bg-white rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+                <!-- IMPROVED STATS SECTION -->
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                    <div class="text-center p-6 bg-white rounded-xl shadow-md stat-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
                         <i class="fas fa-users text-4xl text-blue-600 mb-4" aria-hidden="true"></i>
                         <h3 class="text-xl font-semibold mb-2">15% Populasi</h3>
                         <p class="text-gray-600">Memiliki berbagai bentuk disabilitas</p>
                     </div>
-                    <div class="text-center p-6 bg-white rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+                    <div class="text-center p-6 bg-white rounded-xl shadow-md stat-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
                         <i class="fas fa-globe text-4xl text-orange-500 mb-4" aria-hidden="true"></i>
                         <h3 class="text-xl font-semibold mb-2">1 Miliar+</h3>
                         <p class="text-gray-600">Orang membutuhkan aksesibilitas web</p>
                     </div>
-                    <div class="text-center p-6 bg-white rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+                    <div class="text-center p-6 bg-white rounded-xl shadow-md stat-card" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
                         <i class="fas fa-chart-line text-4xl text-blue-600 mb-4" aria-hidden="true"></i>
                         <h3 class="text-xl font-semibold mb-2">2.3x Lebih Baik</h3>
                         <p class="text-gray-600">UX untuk semua pengguna dengan aksesibilitas</p>
@@ -141,21 +128,134 @@
             </div>
         </section>
 
-        <section id="simulasi" class="py-20 bg-white">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- NEW: DISABILITY IMPACT SECTION -->
+        <section id="disability-impact" class="py-16 bg-white border-b">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12" data-aos="fade-up" data-aos-duration="800">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        Siapa yang Kita Bantu?
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        Setiap fitur dirancang untuk kebutuhan disabilitas spesifik dengan solusi praktis
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Screen Reader Impact -->
+                    <div class="impact-card bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500 relative" data-aos="fade-up" data-aos-delay="100">
+                        <div class="disability-badge">Tunanetra</div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-headphones text-blue-600 text-xl" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900">Screen Reader</h3>
+                        </div>
+                        <p class="text-gray-600 mb-3">"Mata" digital untuk pengguna tunanetra yang membaca konten secara audio</p>
+                        <div class="flex items-center justify-between">
+                            <a href="#simulasi" class="text-blue-600 font-semibold text-sm hover:text-blue-800 transition flex items-center">
+                                Coba Simulasi <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                            </a>
+                            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Rasio 21:1</span>
+                        </div>
+                    </div>
+
+                    <!-- Keyboard Impact -->
+                    <div class="impact-card bg-orange-50 p-6 rounded-xl border-l-4 border-orange-500 relative" data-aos="fade-up" data-aos-delay="200">
+                        <div class="disability-badge">Motorik</div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-keyboard text-orange-500 text-xl" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900">Navigasi Keyboard</h3>
+                        </div>
+                        <p class="text-gray-600 mb-3">Kebutuhan utama untuk pengguna dengan keterbatasan gerak tangan</p>
+                        <div class="flex items-center justify-between">
+                            <a href="#keyboard-challenge" class="text-orange-600 font-semibold text-sm hover:text-orange-800 transition flex items-center">
+                                Coba Tantangan <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                            </a>
+                            <span class="text-xs bg-orange-100 text-orange-800 px-2 py-1 rounded">WCAG 2.1</span>
+                        </div>
+                    </div>
+
+                    <!-- Contrast Impact -->
+                    <div class="impact-card bg-green-50 p-6 rounded-xl border-l-4 border-green-500 relative" data-aos="fade-up" data-aos-delay="300">
+                        <div class="disability-badge">Low Vision</div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-eye text-green-600 text-xl" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900">Kontras Tinggi</h3>
+                        </div>
+                        <p class="text-gray-600 mb-3">Membantu penglihatan terbatas dan buta warna dengan kontras optimal</p>
+                        <div class="flex items-center justify-between">
+                            <button onclick="toggleHighContrast()" class="text-green-600 font-semibold text-sm hover:text-green-800 transition flex items-center">
+                                Coba Sekarang <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                            </button>
+                            <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">AAA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW: FEATURE NAVIGATION -->
+        <section class="py-8 bg-gray-50 border-b">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Jelajahi Fitur Aksesibilitas</h3>
+                    <div class="flex flex-wrap justify-center gap-3 feature-nav-container">
+                        <a href="#simulasi" class="feature-nav-btn inline-flex items-center px-4 py-3 bg-white text-blue-700 rounded-lg hover:bg-blue-50 focus-visible transition font-medium shadow-sm">
+                            <i class="fas fa-headphones mr-2" aria-hidden="true"></i>
+                            Screen Reader
+                        </a>
+                        <a href="#keyboard-challenge" class="feature-nav-btn inline-flex items-center px-4 py-3 bg-white text-orange-700 rounded-lg hover:bg-orange-50 focus-visible transition font-medium shadow-sm">
+                            <i class="fas fa-keyboard mr-2" aria-hidden="true"></i>
+                            Keyboard Nav
+                        </a>
+                        <a href="#tentang" class="feature-nav-btn inline-flex items-center px-4 py-3 bg-white text-blue-700 rounded-lg hover:bg-blue-50 focus-visible transition font-medium shadow-sm">
+                            <i class="fas fa-universal-access mr-2" aria-hidden="true"></i>
+                            Jenis Disabilitas
+                        </a>
+                        <a href="#fitur" class="feature-nav-btn inline-flex items-center px-4 py-3 bg-white text-orange-700 rounded-lg hover:bg-orange-50 focus-visible transition font-medium shadow-sm">
+                            <i class="fas fa-cogs mr-2" aria-hidden="true"></i>
+                            Fitur Wajib
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- IMPROVED SCREEN READER SECTION -->
+        <section id="simulasi" class="py-20 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-8" data-aos="fade-up" data-aos-duration="800">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                         <i class="fas fa-headphones text-blue-600 mr-2" aria-hidden="true"></i>
-                        Simulasi Screen Reader
+                        Simulasi Screen Reader <span class="text-blue-600">untuk Tunanetra</span>
                     </h2>
                     <p class="text-lg text-gray-600">
                         Dengarkan bagaimana screen reader membaca website untuk pengguna tunanetra
                     </p>
                 </div>
 
+                <!-- VALUE PROPOSITION BOX -->
+                <div class="simple-value-box p-4 rounded-lg mb-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-start">
+                        <i class="fas fa-bullseye text-blue-500 mt-1 mr-3 text-lg" aria-hidden="true"></i>
+                        <div>
+                            <h4 class="font-semibold text-blue-800 mb-1">Apa Manfaatnya?</h4>
+                            <p class="text-blue-700 text-sm">
+                                <strong>Untuk Tunanetra:</strong> Pahami pentingnya struktur HTML yang baik untuk screen reader
+                                <br>
+                                <strong>Untuk Developer:</strong> Pelajari cara membuat website yang bisa diakses semua orang
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl shadow-xl p-8 md:p-12" data-aos="zoom-in" data-aos-duration="800">
                     <div class="bg-white rounded-xl p-6 shadow-md mb-6" data-aos="slide-up" data-aos-duration="800">
-                        <div class="flex items-center justify-between mb-4">
+                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
                             <div class="flex items-center space-x-3">
                                 <button
                                     id="playPauseBtn"
@@ -170,7 +270,7 @@
                             </div>
                             <button
                                 id="stopBtn"
-                                class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 focus-visible transition"
+                                class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 focus-visible transition font-medium"
                                 aria-label="Stop audio">
                                 <i class="fas fa-stop mr-2" aria-hidden="true"></i>
                                 Stop
@@ -191,10 +291,10 @@
                             Transkrip Audio
                         </h3>
                         <div id="transcript" class="transcript-text text-gray-700 space-y-3">
-                            <p>Selamat datang di SahabatDisabilitas. Sebuah platform yang didedikasikan untuk membuat web dapat diakses oleh semua orang, tanpa terkecuali.</p>
-                            <p>Di sini, Anda akan merasakan langsung berbagai tantangan yang dihadapi oleh penyandang disabilitas ketika mengakses internet. Mulai dari kesulitan navigasi, kontras warna yang tidak memadai, hingga hambatan dalam mengonsumsi konten.</p>
-                            <p>Faktanya, sekitar 15 persen populasi dunia hidup dengan berbagai bentuk disabilitas. Itu berarti, dari setiap 7 orang, 1 di antaranya mungkin kesulitan mengakses website yang kita buat.</p>
-                            <p>Mari bersama kita bangun internet yang lebih inklusif. Klik tombol 'Mulai Belajar' untuk memahami prinsip aksesibilitas web, atau 'Coba Simulasi' untuk mengalami langsung tantangan yang mereka hadapi.</p>
+                            <p data-time="0">Selamat datang di SahabatDisabilitas. Sebuah platform yang didedikasikan untuk membuat web dapat diakses oleh semua orang, tanpa terkecuali.</p>
+                            <p data-time="5">Di sini, Anda akan merasakan langsung berbagai tantangan yang dihadapi oleh penyandang disabilitas ketika mengakses internet. Mulai dari kesulitan navigasi, kontras warna yang tidak memadai, hingga hambatan dalam mengonsumsi konten.</p>
+                            <p data-time="12">Faktanya, sekitar 15 persen populasi dunia hidup dengan berbagai bentuk disabilitas. Itu berarti, dari setiap 7 orang, 1 di antaranya mungkin kesulitan mengakses website yang kita buat.</p>
+                            <p data-time="20">Mari bersama kita bangun internet yang lebih inklusif. Klik tombol 'Mulai Belajar' untuk memahami prinsip aksesibilitas web, atau 'Coba Simulasi' untuk mengalami langsung tantangan yang mereka hadapi.</p>
                         </div>
                     </div>
 
@@ -209,24 +309,41 @@
             </div>
         </section>
 
+        <!-- IMPROVED KEYBOARD CHALLENGE SECTION -->
         <section id="keyboard-challenge" class="py-20 bg-gray-50">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12" data-aos="fade-up" data-aos-duration="800">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                         <i class="fas fa-keyboard text-orange-500 mr-2" aria-hidden="true"></i>
-                        Tantangan Navigasi Keyboard
+                        Tantangan Navigasi Keyboard <span class="text-orange-500">untuk Disabilitas Motorik</span>
                     </h2>
                     <p class="text-lg text-gray-600 mb-6">
                         Coba navigasi website hanya menggunakan keyboard. Banyak pengguna dengan disabilitas motorik mengandalkan keyboard.
                     </p>
+
+                    <!-- VALUE PROPOSITION BOX -->
+                    <div class="simple-value-box p-4 rounded-lg max-w-2xl mx-auto mb-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-start">
+                            <i class="fas fa-bullseye text-orange-500 mt-1 mr-3 text-lg" aria-hidden="true"></i>
+                            <div>
+                                <h4 class="font-semibold text-orange-800 mb-1">Mengapa Penting?</h4>
+                                <p class="text-orange-700 text-sm">
+                                    <strong>Untuk Disabilitas Motorik:</strong> Keyboard adalah alat navigasi utama ketika mouse tidak bisa digunakan
+                                    <br>
+                                    <strong>Standar WCAG:</strong> Semua fungsi harus dapat diakses melalui keyboard saja
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 inline-block text-left rounded" data-aos="flip-left" data-aos-delay="100" data-aos-duration="800">
                         <p class="text-sm text-gray-700 mb-2">
                             <strong>Petunjuk:</strong> Gunakan tombol keyboard berikut:
                         </p>
                         <ul class="text-sm text-gray-700 space-y-1 ml-4">
-                            <li><kbd class="px-2 py-1 bg-white border rounded">Tab</kbd> - Pindah ke elemen berikutnya</li>
-                            <li><kbd class="px-2 py-1 bg-white border rounded">Shift + Tab</kbd> - Kembali ke elemen sebelumnya</li>
-                            <li><kbd class="px-2 py-1 bg-white border rounded">Enter</kbd> atau <kbd class="px-2 py-1 bg-white border rounded">Space</kbd> - Aktifkan elemen</li>
+                            <li><kbd class="px-2 py-1 bg-white border rounded font-mono">Tab</kbd> - Pindah ke elemen berikutnya</li>
+                            <li><kbd class="px-2 py-1 bg-white border rounded font-mono">Shift + Tab</kbd> - Kembali ke elemen sebelumnya</li>
+                            <li><kbd class="px-2 py-1 bg-white border rounded font-mono">Enter</kbd> atau <kbd class="px-2 py-1 bg-white border rounded font-mono">Space</kbd> - Aktifkan elemen</li>
                         </ul>
                     </div>
                 </div>
@@ -240,22 +357,22 @@
                         <div class="flex gap-3">
                             <button
                                 id="startChallengeBtn"
-                                class="px-6 py-3 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 focus-visible transition shadow-md"
+                                class="px-6 py-3 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 focus-visible transition shadow-md flex items-center"
                                 aria-label="Start keyboard challenge">
                                 <i class="fas fa-flag-checkered mr-2" aria-hidden="true"></i>
                                 Mulai Tantangan
                             </button>
                             <button
                                 id="toggleMouseBtn"
-                                class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 focus-visible transition"
+                                class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 focus-visible transition flex items-center"
                                 aria-label="Disable mouse cursor">
                                 <i class="fas fa-mouse-pointer mr-2" aria-hidden="true"></i>
-                                Sembunyikan Kursor
+                                <span id="mouseToggleText">Sembunyikan Kursor</span>
                             </button>
                         </div>
                     </div>
 
-                    <div id="challengeStatus" class="mb-6 p-4 bg-blue-50 border-l-4 border-blue-600 rounded hidden">
+                    <div id="challengeStatus" class="mb-6 p-4 bg-blue-50 border-l-4 border-blue-600 rounded hidden" data-aos="fade-in">
                         <p class="text-gray-700">
                             <i class="fas fa-info-circle text-blue-600 mr-2" aria-hidden="true"></i>
                             <span id="challengeMessage">Tekan Tab untuk memulai navigasi...</span>
@@ -263,75 +380,82 @@
                     </div>
 
                     <div class="keyboard-challenge-area grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Challenge Cards with improved accessibility -->
                         <div
                             tabindex="0"
-                            class="challenge-card p-6 border-2 border-gray-300 rounded-xl hover:border-blue-500 focus:border-orange-500 transition cursor-pointer"
+                            class="challenge-card p-6 border-2 border-gray-300 rounded-xl hover:border-blue-500 focus:border-orange-500 transition cursor-pointer bg-white"
                             data-card="1"
                             role="button"
-                            aria-label="Card 1: Visual content" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+                            aria-label="Card 1: Pentingnya alt text untuk gambar agar dapat dibaca screen reader" 
+                            data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
                             <i class="fas fa-eye text-3xl text-blue-600 mb-3" aria-hidden="true"></i>
                             <h4 class="font-semibold text-gray-900 mb-2">Konten Visual</h4>
-                            <p class="text-sm text-gray-600">Alt text untuk gambar sangat penting</p>
+                            <p class="text-sm text-gray-600">Alt text untuk gambar sangat penting untuk screen reader</p>
                         </div>
 
                         <div
                             tabindex="0"
-                            class="challenge-card p-6 border-2 border-gray-300 rounded-xl hover:border-blue-500 focus:border-orange-500 transition cursor-pointer"
+                            class="challenge-card p-6 border-2 border-gray-300 rounded-xl hover:border-blue-500 focus:border-orange-500 transition cursor-pointer bg-white"
                             data-card="2"
                             role="button"
-                            aria-label="Card 2: Color contrast" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+                            aria-label="Card 2: Kontras warna dengan rasio minimal 4.5:1 untuk keterbacakan" 
+                            data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
                             <i class="fas fa-palette text-3xl text-orange-500 mb-3" aria-hidden="true"></i>
                             <h4 class="font-semibold text-gray-900 mb-2">Kontras Warna</h4>
-                            <p class="text-sm text-gray-600">Pastikan rasio kontras minimal 4.5:1</p>
+                            <p class="text-sm text-gray-600">Pastikan rasio kontras minimal 4.5:1 sesuai standar WCAG</p>
                         </div>
 
                         <div
                             tabindex="0"
-                            class="challenge-card p-6 border-2 border-gray-300 rounded-xl hover:border-blue-500 focus:border-orange-500 transition cursor-pointer"
+                            class="challenge-card p-6 border-2 border-gray-300 rounded-xl hover:border-blue-500 focus:border-orange-500 transition cursor-pointer bg-white"
                             data-card="3"
                             role="button"
-                            aria-label="Card 3: Keyboard navigation"  data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+                            aria-label="Card 3: Navigasi keyboard yang lengkap untuk aksesibilitas" 
+                            data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
                             <i class="fas fa-keyboard text-3xl text-blue-600 mb-3" aria-hidden="true"></i>
                             <h4 class="font-semibold text-gray-900 mb-2">Navigasi Keyboard</h4>
-                            <p class="text-sm text-gray-600">Semua fungsi harus bisa diakses keyboard</p>
+                            <p class="text-sm text-gray-600">Semua fungsi harus bisa diakses keyboard sepenuhnya</p>
                         </div>
 
                         <div
                             tabindex="0"
-                            class="challenge-card p-6 border-2 border-gray-300 rounded-xl hover:border-blue-500 focus:border-orange-500 transition cursor-pointer"
+                            class="challenge-card p-6 border-2 border-gray-300 rounded-xl hover:border-blue-500 focus:border-orange-500 transition cursor-pointer bg-white"
                             data-card="4"
                             role="button"
-                            aria-label="Card 4: Semantic HTML" data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">
+                            aria-label="Card 4: HTML semantik untuk struktur yang mudah dinavigasi" 
+                            data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">
                             <i class="fas fa-code text-3xl text-orange-500 mb-3" aria-hidden="true"></i>
                             <h4 class="font-semibold text-gray-900 mb-2">HTML Semantik</h4>
-                            <p class="text-sm text-gray-600">Gunakan tag yang tepat untuk konten</p>
+                            <p class="text-sm text-gray-600">Gunakan tag yang tepat untuk konten yang terstruktur</p>
                         </div>
 
                         <div
                             tabindex="0"
-                            class="challenge-card p-6 border-2 border-gray-300 rounded-xl hover:border-blue-500 focus:border-orange-500 transition cursor-pointer"
+                            class="challenge-card p-6 border-2 border-gray-300 rounded-xl hover:border-blue-500 focus:border-orange-500 transition cursor-pointer bg-white"
                             data-card="5"
                             role="button"
-                            aria-label="Card 5: ARIA labels" data-aos="fade-up" data-aos-delay="500" data-aos-duration="800">
+                            aria-label="Card 5: ARIA labels untuk konteks tambahan screen reader" 
+                            data-aos="fade-up" data-aos-delay="500" data-aos-duration="800">
                             <i class="fas fa-tags text-3xl text-blue-600 mb-3" aria-hidden="true"></i>
                             <h4 class="font-semibold text-gray-900 mb-2">ARIA Labels</h4>
-                            <p class="text-sm text-gray-600">Tambahkan konteks untuk screen reader</p>
+                            <p class="text-sm text-gray-600">Tambahkan konteks untuk screen reader dengan ARIA</p>
                         </div>
 
                         <div
                             tabindex="0"
-                            class="challenge-card p-6 border-2 border-gray-300 rounded-xl hover:border-blue-500 focus:border-orange-500 transition cursor-pointer"
+                            class="challenge-card p-6 border-2 border-gray-300 rounded-xl hover:border-blue-500 focus:border-orange-500 transition cursor-pointer bg-white"
                             data-card="6"
                             role="button"
-                            aria-label="Card 6: Responsive design" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
+                            aria-label="Card 6: Desain responsif untuk semua perangkat" 
+                            data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
                             <i class="fas fa-mobile-alt text-3xl text-orange-500 mb-3" aria-hidden="true"></i>
                             <h4 class="font-semibold text-gray-900 mb-2">Desain Responsif</h4>
-                            <p class="text-sm text-gray-600">Aksesibel di semua ukuran layar</p>
+                            <p class="text-sm text-gray-600">Aksesibel di semua ukuran layar dan perangkat</p>
                         </div>
                     </div>
 
-                    <div id="successMessage" class="mt-6 p-4 bg-green-50 border-l-4 border-green-500 rounded hidden">
-                        <p class="text-green-700 font-semibold">
+                    <div id="successMessage" class="mt-6 p-4 bg-green-50 border-l-4 border-green-500 rounded hidden" data-aos="fade-in">
+                        <p class="text-green-700 font-semibold flex items-center">
                             <i class="fas fa-check-circle mr-2" aria-hidden="true"></i>
                             Selamat! Anda berhasil menavigasi semua kartu menggunakan keyboard.
                         </p>
@@ -340,6 +464,60 @@
             </div>
         </section>
 
+        <!-- NEW: QUICK START GUIDE -->
+        <section class="py-16 bg-white border-b">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4" data-aos="fade-up">Mulai dalam 3 Langkah Mudah</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                        Journey lengkap dari memahami masalah hingga menerapkan solusi
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center p-6 quick-step" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-blue-600 font-bold text-xl">1</span>
+                        </div>
+                        <h3 class="font-semibold text-gray-900 mb-2 text-lg">Rasakan</h3>
+                        <p class="text-gray-600">Coba simulasi untuk langsung merasakan tantangan yang dihadapi</p>
+                        <div class="mt-4">
+                            <a href="#simulasi" class="text-blue-600 font-medium text-sm hover:text-blue-800 transition">
+                                Coba Sekarang →
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center p-6 quick-step" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-orange-500 font-bold text-xl">2</span>
+                        </div>
+                        <h3 class="font-semibold text-gray-900 mb-2 text-lg">Pahami</h3>
+                        <p class="text-gray-600">Pelajari prinsip dan solusi aksesibilitas web yang praktis</p>
+                        <div class="mt-4">
+                            <a href="#fitur" class="text-orange-600 font-medium text-sm hover:text-orange-800 transition">
+                                Pelajari →
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center p-6 quick-step" data-aos="fade-up" data-aos-delay="400">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-blue-600 font-bold text-xl">3</span>
+                        </div>
+                        <h3 class="font-semibold text-gray-900 mb-2 text-lg">Terapkan</h3>
+                        <p class="text-gray-600">Implementasikan pengetahuan untuk membuat website yang inklusif</p>
+                        <div class="mt-4">
+                            <a href="#tentang" class="text-blue-600 font-medium text-sm hover:text-blue-800 transition">
+                                Implementasi →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION (Tetap sama, sudah bagus) -->
         <section id="tentang" class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="800">
@@ -353,6 +531,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                    <!-- Cards tetap sama, sudah bagus -->
                     <div class="card-hover text-center p-8 bg-blue-50 rounded-xl" data-aos="flip-left" data-aos-delay="100" data-aos-duration="800">
                         <i class="fas fa-eye-slash text-5xl text-blue-600 mb-4" aria-hidden="true"></i>
                         <h3 class="text-xl font-semibold text-gray-900 mb-3">Tunanetra</h3>
@@ -378,6 +557,7 @@
                     </div>
                 </div>
 
+                <!-- WCAG Section tetap sama, sudah bagus -->
                 <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl shadow-2xl p-8 md:p-12 text-white" data-aos="zoom-in-up" data-aos-duration="800">
                     <h3 class="text-2xl md:text-3xl font-bold mb-6">Prinsip WCAG (Web Content Accessibility Guidelines)</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -425,6 +605,7 @@
             </div>
         </section>
 
+        <!-- FEATURES SECTION (Tetap sama, sudah bagus) -->
         <section id="fitur" class="py-20 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="800">
@@ -437,6 +618,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature cards tetap sama, sudah bagus -->
                     <div class="card-hover bg-white p-8 rounded-xl shadow-md" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="800">
                         <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                             <i class="fas fa-text-height text-2xl text-blue-600" aria-hidden="true"></i>
@@ -455,10 +637,13 @@
 
                     <div class="card-hover bg-white p-8 rounded-xl shadow-md" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="800">
                         <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                            <i class="fas fa-circle text-2xl text-blue-600" aria-hidden="true"></i>
+                            <i class="fas fa-adjust text-2xl text-blue-600" aria-hidden="true"></i>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Kontras Warna</h3>
-                        <p class="text-gray-600">Rasio kontras minimal 4.5:1 antara teks dan background untuk keterbacaan</p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Kontras Tinggi</h3>
+                        <p class="text-gray-600 mb-3">Rasio kontras 21:1 (jauh di atas standar WCAG 4.5:1) untuk pengguna low vision dan buta warna.</p>
+                        <button onclick="toggleHighContrast()" class="text-blue-600 hover:text-blue-800 font-medium text-sm focus-visible transition flex items-center">
+                            <i class="fas fa-play-circle mr-1"></i>Coba Sekarang
+                        </button>
                     </div>
 
                     <div class="card-hover bg-white p-8 rounded-xl shadow-md" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="800">
@@ -488,6 +673,7 @@
             </div>
         </section>
 
+        <!-- CTA SECTION -->
         <section class="py-20 bg-gradient-to-br from-orange-500 to-orange-600">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white" data-aos="fade-up" data-aos-duration="800">
                 <h2 class="text-3xl md:text-4xl font-bold mb-6">
@@ -498,12 +684,12 @@
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="800">
                     <a href="#beranda"
-                       class="px-8 py-4 bg-white text-orange-600 rounded-lg font-semibold hover:bg-orange-50 focus-visible transition shadow-lg">
+                       class="px-8 py-4 bg-white text-orange-600 rounded-lg font-semibold hover:bg-orange-50 focus-visible transition shadow-lg flex items-center justify-center">
                         <i class="fas fa-rocket mr-2" aria-hidden="true"></i>
                         Mulai Sekarang
                     </a>
                     <a href="#simulasi"
-                       class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-orange-600 focus-visible transition">
+                       class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-orange-600 focus-visible transition flex items-center justify-center">
                         <i class="fas fa-redo mr-2" aria-hidden="true"></i>
                         Ulangi Simulasi
                     </a>
@@ -512,13 +698,13 @@
         </section>
     </main>
 
+    <!-- FOOTER -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <div data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
                     <div class="flex items-center space-x-2 mb-4">
-                        <!-- <i class="fas fa-universal-access text-2xl text-blue-400" aria-hidden="true"></i> -->
-                        <img src="assets/logo/logo_2.png" alt="Logo" class="w-10">
+                        <img src="assets/logo/logo_2.png" alt="SahabatDisabilitas Logo" class="w-10">
                         <span class="text-xl font-bold">SahabatDisabilitas</span>
                     </div>
                     <p class="text-gray-400">
@@ -530,8 +716,9 @@
                     <h3 class="text-lg font-semibold mb-4">Navigasi Cepat</h3>
                     <ul class="space-y-2">
                         <li><a href="#beranda" class="text-gray-400 hover:text-white focus-visible transition">Beranda</a></li>
-                        <li><a href="#fitur" class="text-gray-400 hover:text-white focus-visible transition">Fitur</a></li>
+                        <li><a href="#disability-impact" class="text-gray-400 hover:text-white focus-visible transition">Dampak</a></li>
                         <li><a href="#simulasi" class="text-gray-400 hover:text-white focus-visible transition">Simulasi</a></li>
+                        <li><a href="#fitur" class="text-gray-400 hover:text-white focus-visible transition">Fitur</a></li>
                         <li><a href="#tentang" class="text-gray-400 hover:text-white focus-visible transition">Tentang</a></li>
                     </ul>
                 </div>
@@ -571,9 +758,30 @@
         </div>
     </footer>
 
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script src="assets/js/script.js"></script>
-<script src="assets/js/aos.js"></script>
+    <!-- BACK TO TOP BUTTON -->
+    <button
+        id="backToTop"
+        class="fixed bottom-8 right-8 w-14 h-14 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 transition-all duration-300 opacity-0 invisible flex items-center justify-center z-50"
+        aria-label="Kembali ke atas halaman"
+        title="Kembali ke atas">
+        
+        <!-- Progress Circle Background -->
+        <svg class="absolute inset-0 w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+            <!-- Background circle -->
+            <circle cx="50" cy="50" r="45" stroke="#e5e7eb" stroke-width="3" fill="none" />
+            <!-- Progress circle -->
+            <circle id="progressCircle" cx="50" cy="50" r="45" stroke="#ffffff" stroke-width="3" fill="none" 
+                    stroke-dasharray="283" stroke-dashoffset="283" stroke-linecap="round" />
+        </svg>
+        
+        <!-- Icon -->
+        <i class="fas fa-chevron-up text-xl relative z-10" aria-hidden="true"></i>
+    </button>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/aos.js"></script>
 </body>
 </html>

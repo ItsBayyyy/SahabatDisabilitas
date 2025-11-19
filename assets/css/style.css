@@ -1,7 +1,9 @@
 * {
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 
+/* ===== HIGH CONTRAST MODE ===== */
 body.high-contrast {
   background-color: #000000 !important;
   color: #fbbf24 !important;
@@ -45,6 +47,7 @@ body.high-contrast .card-hover {
   background-color: #1a1a1a !important;
 }
 
+/* ===== ACCESSIBILITY FEATURES ===== */
 .focus-visible:focus {
   outline: 4px solid #2563eb;
   outline-offset: 4px;
@@ -64,6 +67,7 @@ body.no-mouse * {
   cursor: none !important;
 }
 
+/* ===== IMPROVED COMPONENTS ===== */
 .audio-progress {
   transition: width 0.1s linear;
 }
@@ -74,8 +78,7 @@ body.no-mouse * {
 
 .card-hover:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 #mobileMenu {
@@ -89,12 +92,12 @@ body.no-mouse * {
 
 @keyframes fadeIn {
   from {
-    opacity: 0;
-    transform: translateY(20px);
+      opacity: 0;
+      transform: translateY(20px);
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
   }
 }
 
@@ -106,4 +109,185 @@ body.no-mouse * {
   background-color: #fef3c7;
   padding: 2px 4px;
   border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+/* ===== NEW IMPROVEMENTS ===== */
+.impact-card {
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.impact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.simple-value-box {
+  border-left: 4px solid #3b82f6;
+  background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
+}
+
+.quick-step {
+  transition: all 0.3s ease;
+}
+
+.quick-step:hover {
+  transform: scale(1.05);
+}
+
+.feature-nav-btn {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.feature-nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-color: #3b82f6;
+}
+
+.disability-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #f97316;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+/* ===== RESPONSIVE IMPROVEMENTS ===== */
+@media (max-width: 768px) {
+  .impact-card {
+      margin-bottom: 1rem;
+  }
+  
+  .simple-value-box {
+      margin: 1rem 0;
+  }
+
+  .feature-nav-container {
+      flex-wrap: wrap;
+      gap: 0.5rem;
+  }
+
+  .feature-nav-btn {
+      flex: 1 0 calc(50% - 0.5rem);
+      min-width: 140px;
+  }
+
+  
+}
+
+@media (max-width: 390px) {
+  .hero-title {
+      font-size: 2rem !important;
+  }
+  
+  .stat-card {
+      padding: 1rem !important;
+  }
+}
+
+/* ===== HIGH CONTRAST IMPROVEMENTS ===== */
+body.high-contrast .impact-card {
+  background-color: #1a1a1a !important;
+  border-color: #fbbf24 !important;
+}
+
+body.high-contrast .simple-value-box {
+  background-color: #1a1a1a !important;
+  border-color: #fbbf24 !important;
+}
+
+body.high-contrast .feature-nav-btn {
+  border-color: #fbbf24 !important;
+}
+
+#backToTop {
+    transition: all 0.3s ease;
+}
+
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#backToTop.hide {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+#backToTop:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+}
+
+/* High contrast mode support */
+body.high-contrast #backToTop {
+    background-color: #000000 !important;
+    border: 2px solid #fbbf24 !important;
+    color: #fbbf24 !important;
+}
+
+body.high-contrast #backToTop:hover {
+    background-color: #fbbf24 !important;
+    color: #000000 !important;
+}
+
+/* ===== BACK TO TOP BUTTON WITH PROGRESS ===== */
+#backToTop {
+  transition: all 0.3s ease;
+}
+
+#backToTop.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#backToTop.hide {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+}
+
+#backToTop:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
+}
+
+#backToTop:hover #progressCircle {
+  stroke: #fbbf24;
+  stroke-width: 4;
+}
+
+/* Progress circle animation */
+#progressCircle {
+  transition: all 0.3s ease;
+}
+
+/* High contrast mode support */
+body.high-contrast #backToTop {
+  background-color: #000000 !important;
+  border: 2px solid #fbbf24 !important;
+  color: #fbbf24 !important;
+}
+
+body.high-contrast #backToTop #progressCircle {
+  stroke: #fbbf24 !important;
+}
+
+body.high-contrast #backToTop:hover {
+  background-color: #fbbf24 !important;
+  color: #000000 !important;
+}
+
+body.high-contrast #backToTop:hover #progressCircle {
+  stroke: #000000 !important;
 }
